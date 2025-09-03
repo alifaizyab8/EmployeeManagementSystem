@@ -7,3 +7,5 @@ Member 1 – Ali Faizyab Khan
 Member 2 – Anshara 
 
 Member 3 – Syed Waqar Wasif 
+
+Syed Waqar Wasif has commited

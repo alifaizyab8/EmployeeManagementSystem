@@ -8,4 +8,8 @@ Member 2 – Anshara
 
 Member 3 – Syed Waqar Wasif 
 
-Syed Waqar Wasif has commited
+Ali Faizyab Khan has commited and synced
+
+Syed Waqar Wasif has commited and synced 
+
+Member - 2 is pending 

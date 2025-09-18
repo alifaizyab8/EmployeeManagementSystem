@@ -13,4 +13,4 @@ Ali Faizyab Khan has commited and synced
 
 Syed Waqar Wasif has commited and synced 
 
-Member - 2 is pending 
+Anshara Amir has commited and synced.

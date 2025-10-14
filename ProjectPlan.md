@@ -73,32 +73,32 @@ Display performance in a formatted, aligned table.
 
 EmployeeManagementSystem/
 │
-├── include/            # Header files
-│ ├── login.h
-│ ├── employee.h
-│ ├── jobs.h
-│ ├── applications.h
-│ └── extras.h
+├── include/                        # Header files
+│   ├── login.h
+│   ├── employee.h
+│   ├── jobs.h
+│   ├── applications.h
+│   └── extras.h
 │
-├── app/                # Implementation files
-│ ├── main.c
-│ ├── login.c
-│ ├── employee.c
-│ ├── jobs.c
-│ ├── applications.c
-│ └── extras.c
+├── app/                            # Source files (code implementation)
+│   ├── main.c
+│   ├── login.c
+│   ├── employee.c
+│   ├── jobs.c
+│   ├── applications.c
+│   └── extras.c
 │
-├── data/               # Persistent storage
-│ ├── employees.dat
-│ ├── applications.dat
-│ └── login.dat
+├── data/                           # Persistent binary storage
+│   ├── employees.dat
+│   ├── applications.dat
+│   └── login.dat
 │
-└── helper/             # Developer documentation
-  ├── login.txt
-  ├── employee.txt
-  ├── jobs.txt
-  ├── applications.txt
-  └── extras.txt
+└── helper/                         # Developer documentation
+    ├── login.txt
+    ├── employee.txt
+    ├── jobs.txt
+    ├── applications.txt
+    └── extras.txt
 
 
   

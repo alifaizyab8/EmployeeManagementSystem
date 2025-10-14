@@ -1,0 +1,87 @@
+
+# Employee Management System - .gitignore
+
+#  Compiled Output / Executables
+
+*.exe
+*.out
+*.o
+*.obj
+*.dll
+*.so
+*.a
+*.lib
+
+
+#  Build / Debug / Temp Files
+
+*.log
+*.tmp
+*.bak
+*.swp
+*.swo
+*.dSYM/
+*.stackdump
+*.vscode/
+*.idea/
+*.cache/
+*.vs/
+*.DS_Store
+Thumbs.db
+
+
+#  Data Files (Generated at Runtime)
+
+/data/*.dat
+*.dat
+
+
+#  Binary & Backup Files
+
+*.bin
+*.bak
+*.old
+*.orig
+
+
+#  Compiled Binaries or Test Outputs
+
+EMS
+EMS.exe
+output/
+build/
+bin/
+obj/
+dist/
+
+
+#  OS and Editor Files
+
+ehthumbs.db
+Thumbs.db
+desktop.ini
+
+# Temporary or Helper Notes (Optional)
+# Uncomment if you don’t want to commit helper notes
+# 
+/helper/*.txt
+
+
+#  Misc
+
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.iso
+*.log
+*.csv
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+
+
+#  End of .gitignore
+# =========================================================

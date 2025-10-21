@@ -17,9 +17,9 @@ struct Employee
     char position[25];
     float salary;
     float hourly_rate;
-    int working_hours;
+    int worked_hours;
     int over_time;
-    float last_payment;
+    float last_paycheck;
     float performance_rating;
 
 

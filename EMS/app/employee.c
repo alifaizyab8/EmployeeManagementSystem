@@ -125,3 +125,48 @@ int removeEmployee(struct Employee employees[], int *count, int id)
     printf("Employee with ID %d not found.\n", id);
     return 0; // Employee not found
 }
+
+void displaySingleEmployee(const struct Employee employees[], int size, int id)
+{
+    int found = 0;
+    line();
+    printf("\n\033[1;34mEmployee Details\033[0m\n");
+    line();
+
+    for (int i = 0; i < size; i++)
+    {
+        if (employees[i].id == id)
+        {
+            // TABULAR FORMAT FOR BETTER READABILITY
+            // Print table header
+            printf("\033[1;33m%-5s %-15s %-15s %-5s %-15s %-10s %-12s %-12s %-10s %-12s %-10s\033[0m\n",
+                   "ID", "First Name", "Last Name", "Age", "Position", "Salary", "Hourly Rate",
+                   "Worked Hrs", "Overtime", "Last Pay", "Rating");
+            line();
+
+            // Print employee details in tabular format
+            printf("%-5d %-15s %-15s %-5d %-15s %-10.2f %-12.2f %-12d %-10d %-12.2f %-10.2f\n",
+                   employees[i].id,
+                   employees[i].emp.firstname,
+                   employees[i].emp.lastname,
+                   employees[i].age,
+                   employees[i].position,
+                   employees[i].salary,
+                   employees[i].hourly_rate,
+                   employees[i].worked_hours,
+                   employees[i].over_time,
+                   employees[i].last_paycheck,
+                   employees[i].performance_rating);
+
+            found = 1;
+            break;
+        }
+    }
+
+    if (!found)
+    {
+        printf("\033[1;31mEmployee with ID %d not found.\033[0m\n", id);
+    }
+
+    line();
+}

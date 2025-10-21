@@ -27,7 +27,7 @@ void printLoginTitle()
 {
     printf("\033[1;95m"); 
     printf("\n");
-    printf("\t\tL       OOO   GGGG  III  N   N    PPPP   OOO  RRRR  TTTTT  A    L\n");
+    printf("\t\tL       OOO   GGGG  III N   N    PPPP   OOO  RRRR  TTTTT  A    L\n");
     printf("\t\tL      O   O  G      I  NN  N    P   P O   O R   R   T   A A   L\n");
     printf("\t\tL      O   O  G  GG  I  N N N    PPPP  O   O RRRR    T  AAAAA  L\n");
     printf("\t\tLLLLL   OOO    GGGG III N  NN    P      OOO  R  R    T A     A LLLLL\n");

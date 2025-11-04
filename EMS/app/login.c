@@ -2,20 +2,16 @@
 #include <string.h>
 #include "../include/login.h"
 #include "../include/employee.h"
+#include "../include/extras.h"
 
 int userID;
 char userPASS[7];
-int user_id[25] = {1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009, 1010, 1011, 1012, 1013, 1014, 1015, 1016, 1017, 1018, 1019, 1020,
-                   1021, 1022, 1023, 1024, 1025};
-char passwords[25][7] = {
-    "alpha1", "bravo2", "charl3", "delta4", "echo55",
-    "foxtt6", "golf77", "hotel8", "india9", "julie0",
-    "kilos1", "limaa2", "miken3", "novem4", "oscar5",
-    "papat6", "queen7", "romeo8", "sierra", "tango9",
-    "union0", "victor", "whisk1", "xray22", "yanke3"};
+int user_id[5] = {1001, 1002, 1003, 1004, 1005};
+char passwords[5][7] = {
+    "alpha1", "bravo2", "charl3", "delta4", "echo55"};
 void printEMS()
 {
-    printf("\033[1;95m"); 
+    printf("\033[1;95m");
     printf("\n");
     printf("\t\t\t\tEEEEEEE   M     M   SSSSS  \n");
     printf("\t\t\t\tE         MM   MM  S       \n");
@@ -27,7 +23,7 @@ void printEMS()
 }
 void printLoginTitle()
 {
-    printf("\033[1;95m"); 
+    printf("\033[1;95m");
     printf("\n");
     printf("\t\tL       OOO   GGGG  III N   N    PPPP   OOO  RRRR  TTTTT  A    L\n");
     printf("\t\tL      O   O  G      I  NN  N    P   P O   O R   R   T   A A   L\n");
@@ -55,56 +51,49 @@ void displayLoginScreen()
     printf("\n\n");
     printLoginTitle();
     printf("\n\n");
+
+    FILE *fp = fopen("../helper/login.txt", "r");
+    if (fp == NULL)
+    {
+        printf("Error opening login file.\n");
+        return;
+    }
     while (1)
     {
         printf("\033[1;35mUser ID: \033[0m");
         scanf("%d", &userID);
-        int found = 0;
-        for (int i = 0; i < 25; i++)
-        {
-            if (userID == user_id[i])
-            {
-                found += 1;
-                ind = i;
-                break;
-            }
-        }
-        if (found == 1)
-        {
-            printf("\033[1;32mWelcome User %d\033[0m\n", userID);
-            break;
-        }
-        else
-        {
-            printf("\033[31mNo Such user found\033[0m\n");
-        }
-    }
-    while (1)
-    {
         printf("\033[1;35mPassword: \033[0m");
         scanf("%s", userPASS);
 
-        if (strcmp(userPASS, passwords[ind]) == 0)
+        char file_line[50];
+        int login_success = 0;
+
+        while (fgets(file_line, sizeof(file_line), fp))
         {
-            printf("\033[1;32mLogin Successful!\033[0m\n");
-            break;
+            int file_userID;
+            char file_password[7];
+            sscanf(file_line, "%d,%6s", &file_userID, file_password);
+
+            if (userID == file_userID && strcmp(userPASS, file_password) == 0)
+            {
+                printf("\033[1;32mLogin Successful! Welcome User %d\033[0m\n", userID);
+                login_success = 1;
+                break;
+            }
         }
 
+        if (login_success)
+        {
+            break;
+        }
         else
         {
-            printf("\033[31mIncorrect Password! Try Again.\033[0m\n");
+            printf("\033[31mIncorrect User ID or Password! Try Again.\033[0m\n");
+            rewind(fp); // Reset file pointer to the beginning for the next attempt
         }
     }
     printf("\n");
     line();
     printf("\n\n");
-        
-
-    
-    struct Employee employees[MAX_EMPLOYEES];
-    int employeeCount = 0;
-    initializeEmployees(employees, MAX_EMPLOYEES);
-    showMenu(employees, &employeeCount);
-
+    fclose(fp);
 }
-

@@ -2,7 +2,6 @@
 #include <string.h>
 #include "../include/login.h"
 #include "../include/employee.h"
-void showMenu(struct Employee employees[], int *employeeCount);
 
 int userID;
 char userPASS[7];

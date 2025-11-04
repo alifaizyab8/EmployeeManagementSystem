@@ -1,8 +1,6 @@
 #include <stdio.h>
 #include "../include/login.h"
 #include "../include/employee.h"
-void showMenu(struct Employee employees[], int *employeeCount);
-
 
 // RUN COMMAND FOR NOW : gcc main.c employee.c login.c && ./a.exe
 int main()

@@ -3,7 +3,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#define EMPLOYEE_FILE "../data/employee.txt"
 
 // Display a single employee by id
 // same functionality can be implemented to list all the employees
@@ -319,7 +318,7 @@ int loadEmployee(struct Employee employees[], int size)
 {
     initializeEmployees(employees, size);
 
-    FILE *fptr = fopen("EMPLOYEE_FILE", "r");
+    FILE *fptr = fopen("../data/employee.txt", "r");
     if (fptr == NULL)
     {
         printf("No existing employee data found. Starting fresh.\n");
@@ -359,7 +358,7 @@ int loadEmployee(struct Employee employees[], int size)
 int saveEmployeesToFile(const struct Employee employees[], int size)
 {
     // const is used to prevent modification of employee data
-    FILE *fptr = fopen("EMPLOYEE_FILE", "w");
+    FILE *fptr = fopen("../data/employee.txt", "w");
     if (fptr == NULL)
     {
         printf("Error opening file for saving employees.\n");

@@ -19,9 +19,17 @@ int main()
     
 
     // Testing Add Employee Function
-    addEmployee(employees, &employeeCount);
+    int temp = addEmployee(employees, &employeeCount);
+    if (temp)
+        printf("Employee added successfully. Total Employees: %d\n", employeeCount);
+    else
+        printf("Failed to add employee.\n");
     displaySingleEmployee(employees, MAX_EMPLOYEES, employees[0].id);
-    removeEmployee(employees, &employeeCount, employees[0].id);
+    int temp2 = removeEmployee(employees, &employeeCount, employees[0].id);
+    if (temp2)
+        printf("Employee removed successfully. Total Employees: %d\n", employeeCount);
+    else
+        printf("Failed to remove employee.\n");
     displaySingleEmployee(employees, MAX_EMPLOYEES, employees[0].id);
 
 

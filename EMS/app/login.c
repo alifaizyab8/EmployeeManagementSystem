@@ -52,7 +52,7 @@ void displayLoginScreen()
     printLoginTitle();
     printf("\n\n");
 
-    FILE *fp = fopen("../helper/login.txt", "r");
+    FILE *fp = fopen("../data/login.txt", "r");
     if (fp == NULL)
     {
         printf("Error opening login file.\n");

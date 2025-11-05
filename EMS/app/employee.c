@@ -93,10 +93,10 @@ int addEmployee(struct Employee employees[], int *count)
     // ID check and input
     while (1)
     {
-        printf("Enter Employee ID (1 > ID > 1000): ");
+        printf("Enter Employee ID (1 < ID < 1000): ");
         if (scanf("%d", &newEmp.id) != 1 || newEmp.id <= 0 || newEmp.id > 10000)
         {
-            printf("Invalid ID. Please enter a valid number as 1 > ID > 1000\n");
+            printf("Invalid ID. Please enter a valid number as 1 < ID < 1000\n");
             // clear scanf buffer
             while (getchar() != '\n')
                 ;

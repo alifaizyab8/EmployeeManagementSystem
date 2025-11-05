@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
+#define EMPLOYEE_FILE "../data/employee.txt"
 
 // Display a single employee by id
 // same functionality can be implemented to list all the employees
@@ -74,13 +75,13 @@ void initializeEmployees(struct Employee employees[], int size)
 // It takes the employees array and a pointer to the current count of employees
 
 int addEmployee(struct Employee employees[], int *count)
-{   
+{
 
     // Check if we can add more employees
-    if (*count >= MAX_EMPLOYEES) 
+    if (*count >= MAX_EMPLOYEES)
     {
-    printf("Cannot add more employees. Maximum limit reached.\n");
-    return 0;
+        printf("Cannot add more employees. Maximum limit reached.\n");
+        return 0;
     }
 
     struct Employee newEmp;
@@ -89,7 +90,7 @@ int addEmployee(struct Employee employees[], int *count)
     printf("\033[1;34mEmployee Addition Window\033[0m\n");
     line();
 
-    // ID check and input 
+    // ID check and input
     while (1)
     {
         printf("Enter Employee ID (1 > ID > 1000): ");
@@ -97,7 +98,8 @@ int addEmployee(struct Employee employees[], int *count)
         {
             printf("Invalid ID. Please enter a valid number as 1 > ID > 1000\n");
             // clear scanf buffer
-            while (getchar() != '\n'); 
+            while (getchar() != '\n')
+                ;
             continue;
         }
 
@@ -116,7 +118,8 @@ int addEmployee(struct Employee employees[], int *count)
             break;
     }
 
-    while (getchar() != '\n'); // clear input buffer
+    while (getchar() != '\n')
+        ; // clear input buffer
 
     // First name input and validation
     while (1)
@@ -125,7 +128,8 @@ int addEmployee(struct Employee employees[], int *count)
         if (scanf("%49[^\n]", newEmp.emp.firstname) != 1)
         {
             printf("Invalid input. Try again.\n");
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
             continue;
         }
         int invalidInputBit = 1;
@@ -140,19 +144,22 @@ int addEmployee(struct Employee employees[], int *count)
         if (invalidInputBit)
             break;
         printf("Name can only contain letters and spaces.\n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
     }
 
-    while (getchar() != '\n'); // clear input buffer
+    while (getchar() != '\n')
+        ; // clear input buffer
 
-    // Last name 
+    // Last name
     while (1)
     {
         printf("Enter Last Name: ");
         if (scanf("%49[^\n]", newEmp.emp.lastname) != 1)
         {
             printf("Invalid input. Try again.\n");
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
             continue;
         }
         int invalidInputBit = 1;
@@ -167,68 +174,79 @@ int addEmployee(struct Employee employees[], int *count)
         if (invalidInputBit)
             break;
         printf("Name can only contain letters and spaces.\n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
     }
     // clear buffer
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
 
-    // Age 
+    // Age
     while (1)
     {
         printf("Enter Age (18-70): ");
         if (scanf("%d", &newEmp.age) != 1 || newEmp.age < 18 || newEmp.age > 70)
         {
             printf("Invalid age. Try again.\n");
-            while (getchar() != '\n'); // clear scanf buffer
+            while (getchar() != '\n')
+                ; // clear scanf buffer
             continue;
         }
         break;
     }
 
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
 
-    // Position 
+    // Position
     while (1)
     {
         printf("Enter Position: ");
         if (scanf("%49[^\n]", newEmp.position) != 1)
         {
             printf("Invalid input. Try again.\n");
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
             continue;
         }
         if (strlen(newEmp.position) > 0)
             break;
         printf("Position cannot be empty.\n");
-        while (getchar() != '\n');
+        while (getchar() != '\n')
+            ;
     }
 
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
     // clear buffer
-    while (getchar() != '\n');
-    // Salary 
+    while (getchar() != '\n')
+        ;
+    // Salary
     while (1)
     {
         printf("Enter Salary (1000–1000000): ");
         if (scanf("%f", &newEmp.salary) != 1 || newEmp.salary < 1000 || newEmp.salary > 1000000)
         {
             printf("Invalid salary. Try again.\n");
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
             continue;
         }
         break;
     }
     // clear buffer
-    while (getchar() != '\n');
+    while (getchar() != '\n')
+        ;
 
-    // Working hours 
+    // Working hours
     while (1)
     {
         printf("Enter Working Hours (0-40): ");
         if (scanf("%d", &newEmp.working_hours) != 1 || newEmp.working_hours < 0 || newEmp.working_hours > 40)
         {
             printf("Invalid input. Try again.\n");
-            while (getchar() != '\n');
+            while (getchar() != '\n')
+                ;
             continue;
         }
         break;
@@ -253,7 +271,6 @@ int addEmployee(struct Employee employees[], int *count)
     return 1;
 }
 
-
 int removeEmployee(struct Employee employees[], int *count, int id)
 {
     line();
@@ -267,6 +284,15 @@ int removeEmployee(struct Employee employees[], int *count, int id)
     {
         if (employees[i].id == id)
         {
+            printf("Are you sure you want to remove this employee ID : %d? (y/n): ", id);
+            char confirm;
+            scanf(" %c", &confirm);
+            if (confirm != 'y' && confirm != 'Y')
+            {
+                printf("Operation cancelled.\n");
+                return 0;
+            }
+
             // Reset the employee record to default values
             employees[i].id = 0;
             employees[i].emp.firstname[0] = '\0';
@@ -293,7 +319,7 @@ int loadEmployee(struct Employee employees[], int size)
 {
     initializeEmployees(employees, size);
 
-    FILE *fptr = fopen("../helper/employee.txt", "r");
+    FILE *fptr = fopen("EMPLOYEE_FILE", "r");
     if (fptr == NULL)
     {
         printf("No existing employee data found. Starting fresh.\n");
@@ -333,7 +359,7 @@ int loadEmployee(struct Employee employees[], int size)
 int saveEmployeesToFile(const struct Employee employees[], int size)
 {
     // const is used to prevent modification of employee data
-    FILE *fptr = fopen("../helper/employee.txt", "w");
+    FILE *fptr = fopen("EMPLOYEE_FILE", "w");
     if (fptr == NULL)
     {
         printf("Error opening file for saving employees.\n");

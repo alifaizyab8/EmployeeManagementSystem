@@ -2,6 +2,7 @@
 #include "../include/login.h"
 #include <stdio.h>
 #include <string.h>
+#include <ctype.h>
 
 // Display a single employee by id
 // same functionality can be implemented to list all the employees
@@ -71,67 +72,179 @@ void initializeEmployees(struct Employee employees[], int size)
 // This function adds a new employee to the employees array
 // This will return 1 if the employee is added successfully, otherwise returns 0
 // It takes the employees array and a pointer to the current count of employees
+
 int addEmployee(struct Employee employees[], int *count)
 {
+    struct Employee newEmp;
+    int validID_Check = 0;
     line();
-    printf("\033[1;34mAdding New Employee\033[0m\n");
-    // Check for an empty slot
+    printf("\033[1;34mEmployee Addition Window\033[0m\n");
+    line();
+
+    // ID check and input 
+    while (1)
+    {
+        printf("Enter Employee ID (1 > ID > 1000): ");
+        if (scanf("%d", &newEmp.id) != 1 || newEmp.id <= 0 || newEmp.id > 10000)
+        {
+            printf("Invalid ID. Please enter a valid number as 1 > ID > 1000\n");
+            // clear scanf buffer
+            while (getchar() != '\n'); 
+            continue;
+        }
+
+        // check for duplicates
+        validID_Check = 1;
+        for (int i = 0; i < MAX_EMPLOYEES; i++)
+        {
+            if (employees[i].id == newEmp.id)
+            {
+                printf("Error: Employee ID %d already exists.\n", newEmp.id);
+                validID_Check = 0;
+                break;
+            }
+        }
+        if (validID_Check)
+            break;
+    }
+
+    while (getchar() != '\n'); // clear input buffer
+
+    // First name input and validation
+    while (1)
+    {
+        printf("Enter First Name: ");
+        if (scanf("%49[^\n]", newEmp.emp.firstname) != 1)
+        {
+            printf("Invalid input. Try again.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+        int invalidInputBit = 1;
+        for (int i = 0; newEmp.emp.firstname[i] != '\0'; i++)
+        {
+            if (!isalpha(newEmp.emp.firstname[i]) && newEmp.emp.firstname[i] != ' ')
+            {
+                invalidInputBit = 0;
+                break;
+            }
+        }
+        if (invalidInputBit)
+            break;
+        printf("Name can only contain letters and spaces.\n");
+        while (getchar() != '\n');
+    }
+
+    while (getchar() != '\n'); // clear input buffer
+
+    // Last name 
+    while (1)
+    {
+        printf("Enter Last Name: ");
+        if (scanf("%49[^\n]", newEmp.emp.lastname) != 1)
+        {
+            printf("Invalid input. Try again.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+        int invalidInputBit = 1;
+        for (int i = 0; newEmp.emp.lastname[i] != '\0'; i++)
+        {
+            if (!isalpha(newEmp.emp.lastname[i]) && newEmp.emp.lastname[i] != ' ')
+            {
+                invalidInputBit = 0;
+                break;
+            }
+        }
+        if (invalidInputBit)
+            break;
+        printf("Name can only contain letters and spaces.\n");
+        while (getchar() != '\n');
+    }
+    // clear buffer
+    while (getchar() != '\n');
+
+    // Age 
+    while (1)
+    {
+        printf("Enter Age (18-70): ");
+        if (scanf("%d", &newEmp.age) != 1 || newEmp.age < 18 || newEmp.age > 70)
+        {
+            printf("Invalid age. Try again.\n");
+            while (getchar() != '\n'); // clear scanf buffer
+            continue;
+        }
+        break;
+    }
+
+    while (getchar() != '\n');
+
+    // Position 
+    while (1)
+    {
+        printf("Enter Position: ");
+        if (scanf("%49[^\n]", newEmp.position) != 1)
+        {
+            printf("Invalid input. Try again.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+        if (strlen(newEmp.position) > 0)
+            break;
+        printf("Position cannot be empty.\n");
+        while (getchar() != '\n');
+    }
+
+    while (getchar() != '\n');
+    // clear buffer
+    while (getchar() != '\n');
+    // Salary 
+    while (1)
+    {
+        printf("Enter Salary (1000–1000000): ");
+        if (scanf("%f", &newEmp.salary) != 1 || newEmp.salary < 1000 || newEmp.salary > 1000000)
+        {
+            printf("Invalid salary. Try again.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+        break;
+    }
+    // clear buffer
+    while (getchar() != '\n');
+
+    // Working hours 
+    while (1)
+    {
+        printf("Enter Working Hours (0-40): ");
+        if (scanf("%d", &newEmp.working_hours) != 1 || newEmp.working_hours < 0 || newEmp.working_hours > 40)
+        {
+            printf("Invalid input. Try again.\n");
+            while (getchar() != '\n');
+            continue;
+        }
+        break;
+    }
+
+    newEmp.over_time = 0;
+    newEmp.performance_rating = 0.0;
+
+    // save to first empty slot
     for (int i = 0; i < MAX_EMPLOYEES; i++)
     {
-
-        if (employees[i].id == 0) // Assuming id 0 means empty slot
+        if (employees[i].id == 0)
         {
-            // Intiialize new employee
-            struct Employee newEmployee;
-            printf("Enter Employee ID:\t\t\t |                     |\n");
-            scanf("%d", &newEmployee.id);
-
-            if (newEmployee.id <= 0)
-            {
-                printf("Invalid ID. Must be positive.\n");
-                return 0;
-            }
-            // Basic Check to avoid duplicate IDs
-            for (int j = 0; j < MAX_EMPLOYEES; j++)
-            {
-                if (employees[j].id == newEmployee.id)
-                {
-                    printf("Employee ID %d already exists. Cannot add duplicate IDs.\n", newEmployee.id);
-                    return 0; // Duplicate ID found
-                }
-            }
-            printf("Enter First Name: \t\t\t |===                   |\n");
-
-            scanf("%s", newEmployee.emp.firstname);
-            printf("Enter Last Name:  \t\t\t |======                |\n");
-
-            scanf("%s", newEmployee.emp.lastname);
-            printf("Enter Age:        \t\t\t |=========             |\n");
-
-            scanf("%d", &newEmployee.age);
-            printf("Enter Position:   \t\t\t |=============         |\n");
-
-            scanf("%s", newEmployee.position);
-            printf("Enter Salary:     \t\t\t |==================    |\n");
-
-            scanf("%f", &newEmployee.salary);
-            printf("Enter Working Hrs:\t\t\t |===================== |\n");
-            scanf("%d", &newEmployee.working_hours);
-            // Overtime can be initialized to 0
-            newEmployee.over_time = 0;
-            // Performance rating can be initialized to 0.0 because it is evaluated as per the formula > (TBDL)
-            newEmployee.performance_rating = 0.0f;
-            // Add new employee to the array
-            employees[i] = newEmployee;
+            employees[i] = newEmp;
             (*count)++;
-            printf("Employee Profile created as : \n\n");
-            displaySingleEmployee(employees, MAX_EMPLOYEES, newEmployee.id);
-            return 1; // Employee added successfully
+            printf("\nEmployee added successfully!\n");
+            break;
         }
     }
-    printf("No empty slot available to add new employee.\n");
-    return 0; // No empty slot available
+    int changesSaved = saveEmployeesToFile(employees, MAX_EMPLOYEES);
+    printf("%d Records updated.\n", changesSaved);
+    return 1;
 }
+
 
 int removeEmployee(struct Employee employees[], int *count, int id)
 {
@@ -157,6 +270,8 @@ int removeEmployee(struct Employee employees[], int *count, int id)
             employees[i].over_time = 0;
             employees[i].performance_rating = 0.0f;
             (*count)--;
+            int changesSaved = saveEmployeesToFile(employees, MAX_EMPLOYEES);
+            printf("%d Records updated.\n", changesSaved);
             return 1; // Employee removed successfully
         }
     }
@@ -238,6 +353,6 @@ int saveEmployeesToFile(const struct Employee employees[], int size)
     }
 
     fclose(fptr);
-    printf("%d employees saved successfully to file.\n", savedCount);
+    printf("Changes saved successfully.\n");
     return savedCount;
 }

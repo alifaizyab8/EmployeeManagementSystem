@@ -16,13 +16,10 @@ struct Employee
     int age;
     char position[25];
     float salary;
-    float hourly_rate;
-    int worked_hours;
+    int working_hours;
     int over_time;
-    float last_paycheck;
     float performance_rating;
-
-
+    
 };
 int addEmployee(struct Employee employees[], int *count);
 

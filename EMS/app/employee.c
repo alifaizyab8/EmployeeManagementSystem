@@ -31,10 +31,8 @@ void displaySingleEmployee(const struct Employee employees[], int size, int id)
                    employees[i].age,
                    employees[i].position,
                    employees[i].salary,
-                   employees[i].hourly_rate,
-                   employees[i].worked_hours,
+                   employees[i].working_hours,
                    employees[i].over_time,
-                   employees[i].last_paycheck,
                    employees[i].performance_rating);
 
             found = 1;
@@ -66,10 +64,8 @@ void initializeEmployees(struct Employee employees[], int size)
         employees[i].age = 0;
         employees[i].position[0] = '\0';
         employees[i].salary = 0.0f;
-        employees[i].hourly_rate = 0.0f;
-        employees[i].worked_hours = 0;
+        employees[i].working_hours = 0;
         employees[i].over_time = 0;
-        employees[i].last_paycheck = 0.0f;
         employees[i].performance_rating = 0.0f;
     }
 }
@@ -120,24 +116,20 @@ int addEmployee(struct Employee employees[], int *count)
             printf("Enter Position:   \t\t\t |=============         |\n");
 
             scanf("%s", newEmployee.position);
-            printf("Enter Salary:     \t\t\t |================      |\n");
+            printf("Enter Salary:     \t\t\t |==================    |\n");
 
             scanf("%f", &newEmployee.salary);
-            printf("Enter Hourly Rate:\t\t\t |====================  |\n");
+            printf("Enter Hourly Rate:\t\t\t |======================|\n");
 
-            scanf("%f", &newEmployee.hourly_rate);
-            printf("                  \t\t\t |======================|\n");
-            // Worked hours and overtime can be initialized to 0
-            newEmployee.worked_hours = 0;
+            // overtime can be initialized to 0
             newEmployee.over_time = 0;
-            newEmployee.last_paycheck = 0.0f;
             // Performance rating can be initialized to 0.0 because it is evaluated as per the formula > (TBDL)
             newEmployee.performance_rating = 0.0f;
             // Add new employee to the array
             employees[i] = newEmployee;
             (*count)++;
             printf("Employee Profile created as : \n\n");
-            displaySingleEmployee(employees,MAX_EMPLOYEES, newEmployee.id);
+            displaySingleEmployee(employees, MAX_EMPLOYEES, newEmployee.id);
             return 1; // Employee added successfully
         }
     }
@@ -151,7 +143,7 @@ int removeEmployee(struct Employee employees[], int *count, int id)
     printf("\033[1;34mRemoving Employee\033[0m\n");
     line();
     printf("\n\n\nThis Employee is being removed...\n\n");
-    displaySingleEmployee(employees,MAX_EMPLOYEES, id);
+    displaySingleEmployee(employees, MAX_EMPLOYEES, id);
     printf("\n\n\n");
     // Search for the employee by ID
     for (int i = 0; i < MAX_EMPLOYEES; i++)
@@ -165,10 +157,8 @@ int removeEmployee(struct Employee employees[], int *count, int id)
             employees[i].age = 0;
             employees[i].position[0] = '\0';
             employees[i].salary = 0.0f;
-            employees[i].hourly_rate = 0.0f;
-            employees[i].worked_hours = 0;
+             employees[i].working_hours = 0;
             employees[i].over_time = 0;
-            employees[i].last_paycheck = 0.0f;
             employees[i].performance_rating = 0.0f;
             (*count)--;
             return 1; // Employee removed successfully
@@ -176,9 +166,6 @@ int removeEmployee(struct Employee employees[], int *count, int id)
     }
     printf("Employee with ID %d not found.\n", id);
     return 0; // Employee not found
-
-
-
 
     line();
 }

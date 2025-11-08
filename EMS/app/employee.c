@@ -1,5 +1,7 @@
 #include "../include/employee.h"
 #include "../include/login.h"
+#include "../include/extras.h"
+#include "../include/search.h"
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>

@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <string.h>
-#include "../include/login.h"
 #include "../include/employee.h"
+#include "../include/login.h"
 #include "../include/extras.h"
+#include "../include/search.h"
 
 int userID;
 char userPASS[7];

@@ -9,7 +9,7 @@ void showMenu(struct Employee employees[], int *employeeCount)
     int id;
     while (1)
     {
-        
+        system("cls");
         printf("\n\033[1;36m=====================================\033[0m\n");
         printf("\033[1;33m        EMPLOYEE MANAGEMENT MENU      \033[0m\n");
         printf("\033[1;36m=====================================\033[0m\n");

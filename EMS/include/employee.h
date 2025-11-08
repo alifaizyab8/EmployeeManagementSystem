@@ -1,6 +1,6 @@
 #ifndef EMPLOYEE_H
 #define EMPLOYEE_H
-#define MAX_EMPLOYEES 30
+#define MAX_EMPLOYEES 100
 
 struct employee_name
 {

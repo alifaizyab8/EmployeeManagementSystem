@@ -1,6 +1,7 @@
 #include "../include/extras.h"
-#include <stdio.h>
 #include "../include/employee.h"
+#include <stdio.h>
+
 
 void showMenu(struct Employee employees[], int *employeeCount) {
     int choice;

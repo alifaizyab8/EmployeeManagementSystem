@@ -1,3 +1,4 @@
+101,Ali,Khan,25,Software Engineer,85000.50,40,5,4.80
 102,Sara,Ahmed,29,HR Manager,65000.00,38,3,4.60
 103,Usman,Rafiq,33,Project Lead,95000.00,40,7,4.90
 104,Hira,Malik,27,Data Analyst,72000.75,39,4,4.50
@@ -7,5 +8,73 @@
 108,Amna,Yousuf,26,QA Tester,60000.00,37,3,4.30
 109,Omar,Faisal,28,System Administrator,82000.50,40,5,4.50
 110,Hassan,Farooq,34,Product Manager,99000.00,40,6,4.90
-12,Ali,faizyab,18,Worker,100000.00,12,0,0.00
-101,a,b,19,ASG,150000.00,15,0,0.00
+111,Faiza,Aslam,23,Intern,42000.00,35,1,3.90
+112,Kamran,Shaikh,38,Database Administrator,91000.00,40,4,4.70
+113,Mehwish,Akhtar,32,Technical Writer,65000.00,38,2,4.30
+114,Rehan,Mughal,29,Support Engineer,57000.00,39,3,4.40
+115,Fatima,Ali,26,Graphic Designer,62000.00,37,2,4.20
+116,Nabeel,Hussain,36,Security Specialist,87000.00,40,5,4.60
+117,Amber,Khalid,28,HR Executive,60000.00,38,3,4.50
+118,Junaid,Iqbal,31,Backend Developer,89000.00,40,6,4.80
+119,Maria,Khan,27,Frontend Developer,84000.00,39,4,4.60
+120,Fahad,Rehman,35,DevOps Engineer,97000.00,40,7,4.90
+121,Imran,Nazir,40,IT Manager,115000.00,40,6,4.80
+122,Laiba,Sheikh,22,Junior Developer,48000.00,35,2,4.00
+123,Ahmad,Saleem,33,Software Architect,120000.00,40,7,4.90
+124,Hina,Noor,28,Recruiter,56000.00,37,3,4.20
+125,Salman,Farid,30,Full Stack Developer,98000.00,40,5,4.70
+126,Rida,Imtiaz,26,UI Developer,71000.00,39,3,4.50
+127,Adeel,Zafar,32,Cloud Engineer,99000.00,40,6,4.80
+128,Neha,Waheed,27,Content Writer,62000.00,38,2,4.30
+129,Talha,Arif,29,QA Engineer,67000.00,40,4,4.50
+130,Humaira,Latif,31,Finance Analyst,75000.00,39,3,4.40
+131,Waqar,Usman,38,Operations Manager,96000.00,40,5,4.70
+132,Afshan,Pervez,24,Marketing Coordinator,55000.00,36,2,4.10
+133,Zeeshan,Hameed,28,Support Technician,59000.00,39,3,4.30
+134,Mehreen,Asad,30,Payroll Officer,64000.00,38,2,4.20
+135,Haider,Raza,35,Network Administrator,87000.00,40,6,4.60
+136,Sadia,Rehman,27,Data Scientist,112000.00,40,6,4.90
+137,Tahir,Kazmi,33,Server Engineer,93000.00,40,5,4.70
+138,Nimra,Iqra,25,Product Designer,69000.00,38,3,4.50
+139,Ammar,Hanif,34,System Analyst,88000.00,40,5,4.60
+140,Zoya,Nasir,29,Project Coordinator,72000.00,39,3,4.40
+141,Muzammil,Ali,26,Mobile Developer,78000.00,39,4,4.60
+142,Sahar,Rehan,32,Legal Advisor,91000.00,40,4,4.50
+143,Farrukh,Ahmed,37,Accountant,85000.00,40,3,4.30
+144,Anum,Shahid,28,HR Coordinator,61000.00,38,2,4.20
+145,Adnan,Sadiq,31,IT Support,66000.00,39,4,4.40
+146,Asma,Rafiq,30,Data Entry Operator,52000.00,37,1,4.10
+147,Rafay,Khan,27,Junior Analyst,58000.00,38,3,4.30
+148,Sumaira,Ali,26,Research Assistant,54000.00,37,2,4.20
+149,Hashim,Rizwan,29,Automation Engineer,89000.00,40,5,4.70
+150,Ayesha,Waqar,24,Marketing Analyst,56000.00,36,2,4.30
+151,Hamza,Khalid,32,Web Developer,88000.00,40,6,4.70
+152,Maham,Yousaf,27,HR Officer,62000.00,38,3,4.40
+153,Furqan,Akram,34,Test Engineer,79000.00,39,5,4.60
+154,Eman,Idrees,25,Design Assistant,51000.00,37,2,4.20
+155,Daniyal,Shah,28,Junior QA,60000.00,38,3,4.40
+156,Afifa,Kamran,26,SEO Specialist,64000.00,37,2,4.30
+157,Roman,Tariq,30,Android Developer,83000.00,40,5,4.60
+158,Iqra,Ali,29,Brand Strategist,72000.00,38,3,4.50
+159,Saad,Rahman,33,System Engineer,94000.00,40,6,4.80
+160,Hiba,Malik,27,Recruitment Officer,57000.00,38,2,4.30
+161,Noman,Farooq,36,UI Architect,101000.00,40,7,4.80
+162,Sadia,Khalid,25,PR Executive,60000.00,37,3,4.40
+163,Shoaib,Iqbal,31,Network Support,77000.00,39,4,4.50
+164,Alina,Nadeem,28,Documentation Lead,68000.00,38,3,4.40
+165,Arsalan,Habib,34,Backend Lead,105000.00,40,7,4.90
+166,Fiza,Tariq,27,Web Designer,71000.00,39,3,4.50
+167,Zubair,Ahmad,35,IT Technician,74000.00,40,4,4.50
+168,Maryam,Kashif,26,Media Planner,58000.00,37,2,4.30
+169,Osama,Rehman,30,App Developer,87000.00,40,5,4.70
+170,Laiba,Asghar,25,Data Entry Clerk,49000.00,36,1,4.10
+171,Imtiaz,Khalil,33,Technical Analyst,91000.00,40,5,4.60
+172,Areeba,Naz,27,Market Researcher,62000.00,38,3,4.40
+173,Hammad,Zeeshan,29,Software Tester,68000.00,39,4,4.50
+174,Samina,Asif,32,HR Lead,83000.00,40,5,4.70
+175,Abdullah,Malik,28,Graphic Artist,65000.00,38,3,4.40
+176,Sehrish,Ali,25,Social Media Manager,63000.00,37,3,4.30
+177,Murtaza,Rafiq,35,IT Consultant,98000.00,40,6,4.80
+178,Noor,Hassan,26,Research Analyst,59000.00,37,2,4.30
+179,Aqsa,Farid,24,Assistant Developer,52000.00,36,2,4.10
+180,Taimoor,Aslam,31,Web Architect,115000.00,40,7,4.90

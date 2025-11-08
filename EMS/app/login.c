@@ -43,7 +43,7 @@ void line()
 
 void displayLoginScreen()
 {
-    int ind;
+    
     line();
     printf("\n\n");
     printEMS();

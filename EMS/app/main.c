@@ -11,7 +11,7 @@ int main()
     int employeeCount = loadEmployee(employees, MAX_EMPLOYEES);
     displayAllEmployees(employees, employeeCount);
 
-    showMenu(employees, &employeeCount);
+    // showMenu(employees, &employeeCount);
 
     return 0;
 }

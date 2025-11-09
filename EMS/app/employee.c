@@ -317,7 +317,7 @@ int loadEmployee(struct Employee employees[], int size)
 {
     initializeEmployees(employees, size);
 
-    FILE *fptr = fopen("data/employee.txt", "r");
+    FILE *fptr = fopen("../data/employee.txt", "r");
     if (fptr == NULL)
     {
         printf("No existing employee data found. Starting fresh.\n");

@@ -5,7 +5,7 @@
 #include "../include/extras.h"
 #include "../include/search.h"
 
-int userID;
+int userID; 
 char userPASS[7];
 int user_id[5] = {1001, 1002, 1003, 1004, 1005};
 char passwords[5][7] = {

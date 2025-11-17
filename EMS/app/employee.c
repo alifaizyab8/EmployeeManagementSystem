@@ -3,7 +3,6 @@
 #include "../include/extras.h"
 #include "../include/search.h"
 #include <stdio.h>
-#include <string.h>
 #include <ctype.h>
 
 // Display a single employee by id

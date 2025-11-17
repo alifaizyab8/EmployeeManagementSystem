@@ -12,4 +12,5 @@
     1. searchByID
     2. searchByName
     3. searchByAge
+    4. searchByDepartment
 */

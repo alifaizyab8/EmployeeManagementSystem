@@ -2,6 +2,7 @@
 #include "../include/login.h"
 #include "../include/extras.h"
 #include "../include/search.h"
+#include<string.h>
 #include <stdio.h>
 #include <ctype.h>
 

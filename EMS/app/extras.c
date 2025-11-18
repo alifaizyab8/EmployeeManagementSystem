@@ -115,7 +115,7 @@ void searchMenu(struct Employee employees[], int *employeeCount)
         else if (searchChoice == 3)
         {
             // searchByAge function
-            printf("Search by Age selected, under development\n");
+            searchbyAge(employees, *employeeCount);
         }
         else if (searchChoice == 4)
         {

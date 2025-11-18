@@ -22,7 +22,6 @@
 122,Laiba,Sheikh,22,Junior Developer,48000.00,35,2,4.00
 123,Ahmad,Saleem,33,Software Architect,120000.00,40,7,4.90
 124,Hina,Noor,28,Recruiter,56000.00,37,3,4.20
-125,Salman,Farid,30,Full Stack Developer,98000.00,40,5,4.70
 126,Rida,Imtiaz,26,UI Developer,71000.00,39,3,4.50
 127,Adeel,Zafar,32,Cloud Engineer,99000.00,40,6,4.80
 128,Neha,Waheed,27,Content Writer,62000.00,38,2,4.30

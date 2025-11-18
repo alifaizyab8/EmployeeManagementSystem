@@ -2,9 +2,8 @@
 #include "../include/login.h"
 #include "../include/extras.h"
 #include "../include/search.h"
-#include<string.h>
+#include "../include/libraryfunc.h"
 #include <stdio.h>
-#include <ctype.h>
 
 // Display a single employee by id
 // same functionality can be implemented to list all the employees
@@ -137,7 +136,7 @@ int addEmployee(struct Employee employees[], int *count)
         int invalidInputBit = 1;
         for (int i = 0; newEmp.emp.firstname[i] != '\0'; i++)
         {
-            if (!isalpha(newEmp.emp.firstname[i]) && newEmp.emp.firstname[i] != ' ')
+            if (!isalpha_custom(newEmp.emp.firstname[i]) && newEmp.emp.firstname[i] != ' ')
             {
                 invalidInputBit = 0;
                 break;
@@ -167,7 +166,7 @@ int addEmployee(struct Employee employees[], int *count)
         int invalidInputBit = 1;
         for (int i = 0; newEmp.emp.lastname[i] != '\0'; i++)
         {
-            if (!isalpha(newEmp.emp.lastname[i]) && newEmp.emp.lastname[i] != ' ')
+            if (!isalpha_custom(newEmp.emp.lastname[i]) && newEmp.emp.lastname[i] != ' ')
             {
                 invalidInputBit = 0;
                 break;
@@ -211,7 +210,7 @@ int addEmployee(struct Employee employees[], int *count)
                 ;
             continue;
         }
-        if (strlen(newEmp.position) > 0)
+        if (strlen_custom(newEmp.position) > 0)
             break;
         printf("Position cannot be empty.\n");
         while (getchar() != '\n')

@@ -1,0 +1,8 @@
+#ifndef LIBRARYFUNC_H
+#define LIBRARYFUNC_H
+
+int strlen_custom(const char *str);
+int strcmp_custom(const char *str1, const char *str2);
+int isalpha_custom(char c);
+
+#endif

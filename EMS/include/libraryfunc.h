@@ -4,6 +4,7 @@
 int strlen_custom(const char *str);
 int strcmp_custom(const char *str1, const char *str2);
 int isalpha_custom(char c);
-
+void toLowercase_custom(char *str);
+void NameFormat_custom(char *str);
 
 #endif

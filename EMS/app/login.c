@@ -7,9 +7,7 @@
 
 int userID; 
 char userPASS[7];
-int user_id[5] = {1001, 1002, 1003, 1004, 1005};
-char passwords[5][7] = {
-    "alpha1", "bravo2", "charl3", "delta4", "echo55"};
+
 void printEMS()
 {
     printf("\033[1;95m");

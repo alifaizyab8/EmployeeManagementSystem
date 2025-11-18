@@ -1,9 +1,9 @@
 #include <stdio.h>
-#include <string.h>
 #include "../include/employee.h"
 #include "../include/login.h"
 #include "../include/extras.h"
 #include "../include/search.h"
+#include "../include/libraryfunc.h"
 
 int userID; 
 char userPASS[7];
@@ -73,7 +73,7 @@ void displayLoginScreen()
             char file_password[7];
             sscanf(file_line, "%d,%6s", &file_userID, file_password);
 
-            if (userID == file_userID && strcmp(userPASS, file_password) == 0)
+            if (userID == file_userID && strcmp_custom(userPASS, file_password) == 0)
             {
                 printf("\033[1;32mLogin Successful! Welcome User %d\033[0m\n", userID);
                 login_success = 1;

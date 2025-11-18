@@ -110,7 +110,7 @@ void searchMenu(struct Employee employees[], int *employeeCount)
         else if (searchChoice == 2)
         {
             // searchByName function
-            printf("Search by Name selected, under development\n");
+            searchbyName(employees, *employeeCount);
         }
         else if (searchChoice == 3)
         {

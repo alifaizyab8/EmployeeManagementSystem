@@ -6,6 +6,6 @@
 void searchbyID(struct Employee employees[], int size);
 void searchbyName(struct Employee employees[], int size);
 void searchbyAge(struct Employee employees[], int size);
-void searchbyDepartment(struct Employee employees[], int size);
+void searchbyposition(struct Employee employees[], int size);
 
 #endif

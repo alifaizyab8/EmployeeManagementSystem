@@ -38,4 +38,6 @@ int saveEmployeesToFile(const struct Employee employees[], int size);
 
 void displayAllEmployees(const struct Employee employees[], int size);
 
+int editEmployee(struct Employee employees[], int count, int id);
+
 #endif

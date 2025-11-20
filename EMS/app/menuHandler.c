@@ -24,9 +24,10 @@ void showMenu(struct Employee employees[], int *employeeCount)
         printf("2. Add New Employee\n");
         printf("3. Remove Employee\n");
         printf("4. Search Employee\n");
-        printf("5. Exit\n");
+        printf("5. Edit Employee Details\n");
+        printf("6. Exit\n");
         printf("\033[1;36m-------------------------------------\033[0m\n");
-        printf("Enter your choice (1-5): ");
+        printf("Enter your choice (1-6): ");
 
         // If scanf fails or if the char after the number isn't a
         if (scanf("%d%c", &choice, &term) != 2 || term != '\n')
@@ -87,6 +88,24 @@ void showMenu(struct Employee employees[], int *employeeCount)
             break;
 
         case 5:
+            // fully independent edit function with its own menu so no external menu needed 
+            printf("\n\033[1;34m--- EDIT EMPLOYEE ---\033[0m\n");
+            printf("Enter Employee ID to edit: ");
+            if (scanf("%d", &id) != 1)
+            {
+                printf("\033[1;31mInvalid ID input!\033[0m\n");
+                while (getchar() != '\n') // clear bufer
+                    ;
+            }
+            else
+            {
+                while (getchar() != '\n')
+                    ; // Clear buffer
+                editEmployee(employees, *(employeeCount), id);
+            }
+
+            break;
+        case 6:
             printf("\n\033[1;35mExiting program... Goodbye!\033[0m\n");
             exit(0);
         default:

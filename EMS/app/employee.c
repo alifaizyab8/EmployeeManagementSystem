@@ -4,7 +4,7 @@
 #include "../include/search.h"
 #include "../include/libraryfunc.h"
 #include <stdio.h>
-
+#include<stdlib.h>
 // Display a single employee by id
 // reuse this logic if you ever need to print the whole list, just loop it
 void displaySingleEmployee(const struct Employee employees[], int size, int id)
@@ -465,4 +465,221 @@ void displayAllEmployees(const struct Employee employees[], int employeeCount)
     }
 
     line();
+}
+
+// Add this prototype to your employee.h as well:
+// int editEmployee(struct Employee employees[], int count, int id);
+
+int editEmployee(struct Employee employees[], int count, int id)
+{
+    int index = 0;
+    // 1. Find the employee index
+    for (int i = 0; i < MAX_EMPLOYEES; i++)
+    {
+        if (employees[i].id == id)
+        {
+            index = i;
+            break;
+        }
+    }
+
+    if (index == 0)
+    {
+        printf("\033[1;31mEmployee with ID %d not found.\033[0m\n", id);
+        return 0;
+    }
+
+    int choice;
+    char term; // For strict input validation
+
+    while (1)
+    {
+        system("cls");
+        line();
+        printf("\033[1;34m        EDITING EMPLOYEE--ID:  %d        \033[0m\n", id);
+        line();
+
+        // Show current state
+        printf("1. First Name         : %s\n", employees[index].emp.firstname);
+        printf("2. Last Name          : %s\n", employees[index].emp.lastname);
+        printf("3. Age                : %d\n", employees[index].age);
+        printf("4. Position           : %s\n", employees[index].position);
+        printf("5. Salary             : %.2f\n", employees[index].salary);
+        printf("6. Working Hours      : %d\n", employees[index].working_hours);
+        printf("7. Overtime           : %d\n", employees[index].over_time);
+        printf("8. Performance Rating : %.2f\n", employees[index].performance_rating);
+        printf("\033[1;32m9. SAVE & RETURN\033[0m\n");
+        printf("\033[1;31m10. CANCEL CHANGES\033[0m\n");
+        line();
+        printf("Select field to edit: ");
+
+        // Strict Menu Input
+        if (scanf("%d%c", &choice, &term) != 2 || term != '\n')
+        {
+            printf("Invalid input. Please enter a number.\n");
+            while (getchar() != '\n')
+                ;
+            printf("Press Enter...");
+            getchar();
+            continue;
+        }
+
+        // --- EDIT LOGIC START ---
+
+        if (choice == 9)
+            break; // Save and exit (to be called after all the required fields are updated)
+        if (choice == 0)
+            return 0; // Cancel (No save)
+
+        switch (choice)
+        {
+        case 1: // Edit First Name
+            while (1)
+            {
+                printf("\nUpdate First Name (Current: %s): ", employees[index].emp.firstname);
+                if (scanf("%49[^\n]", employees[index].emp.firstname) != 1)
+                {
+                    while (getchar() != '\n')
+                        ; // Buffer
+                    continue;
+                }
+                // Validation
+                int invalid = 0;
+                for (int k = 0; employees[index].emp.firstname[k] != '\0'; k++)
+                {
+                    if (!isalpha_custom(employees[index].emp.firstname[k]) && employees[index].emp.firstname[k] != ' ')
+                    {
+                        invalid = 1;
+                        break;
+                    }
+                }
+                if (!invalid)
+                    break;
+                printf("Name can only contain letters and spaces.\n");
+                while (getchar() != '\n')
+                    ;
+            }
+            while (getchar() != '\n')
+                ; // Clear buffer
+            break;
+
+        case 2: // Edit Last Name
+            while (1)
+            {
+                printf("\nUpdate Last Name (Current: %s): ", employees[index].emp.lastname);
+                if (scanf("%49[^\n]", employees[index].emp.lastname) != 1)
+                {
+                    while (getchar() != '\n')
+                        ;
+                    continue;
+                }
+                int invalid = 0;
+                for (int k = 0; employees[index].emp.lastname[k] != '\0'; k++)
+                {
+                    if (!isalpha_custom(employees[index].emp.lastname[k]) && employees[index].emp.lastname[k] != ' ')
+                    {
+                        invalid = 1;
+                        break;
+                    }
+                }
+                if (!invalid)
+                    break;
+                printf("Name can only contain letters and spaces.\n");
+                while (getchar() != '\n')
+                    ;
+            }
+            while (getchar() != '\n')
+                ;
+            break;
+
+        case 3: // Edit Age
+            while (1)
+            {
+                printf("\nUpdate Age (Current: %d): ", employees[index].age);
+                // same scanf type of input validation
+                if (scanf("%d%c", &employees[index].age, &term) != 2 || term != '\n')
+                {
+                    printf("Invalid input. Number only.\n");
+                    while (getchar() != '\n')
+                        ;
+                    continue;
+                }
+                if (employees[index].age < 18 || employees[index].age > 70)
+                {
+                    printf("Age must be 18-70.\n");
+                    continue;
+                }
+                break;
+            }
+            break;
+
+        case 4: // Edit Position
+            while (1)
+            {
+                printf("\nUpdate Position (Current: %s): ", employees[index].position);
+                if (scanf("%49[^\n]", employees[index].position) != 1)
+                {
+                    while (getchar() != '\n')
+                        ;
+                    continue;
+                }
+                if (strlen_custom(employees[index].position) > 0)
+                    break;
+                printf("Position cannot be empty.\n");
+            }
+            while (getchar() != '\n')
+                ;
+            break;
+
+        case 5: // Edit Salary
+            while (1)
+            {
+                printf("\nUpdate Salary (Current: %.2f): ", employees[index].salary);
+                if (scanf("%f%c", &employees[index].salary, &term) != 2 || term != '\n')
+                {
+                    printf("Invalid input. Numeric value only.\n");
+                    while (getchar() != '\n')
+                        ;
+                    continue;
+                }
+                if (employees[index].salary < 1000 || employees[index].salary > 1000000)
+                {
+                    printf("Range: 1000 - 1,000,000.\n");
+                    continue;
+                }
+                break;
+            }
+            break;
+
+        case 6: // Edit Hours
+            while (1)
+            {
+                printf("\nUpdate Working Hours (Current: %d): ", employees[index].working_hours);
+                if (scanf("%d%c", &employees[index].working_hours, &term) != 2 || term != '\n')
+                {
+                    printf("Invalid input. Number only.\n");
+                    while (getchar() != '\n')
+                        ;
+                    continue;
+                }
+                if (employees[index].working_hours < 0 || employees[index].working_hours > 40)
+                {
+                    printf("Range: 0 - 40.\n");
+                    continue;
+                }
+                break;
+            }
+            break;
+
+        default:
+            printf("\033[1;31mInvalid choice.\033[0m\n");
+            printf("Press Enter...");
+            getchar();
+        }
+    }
+
+    // Save to file only when  choice is  7 i.e break form while (1) lop
+    int changesSaved = saveEmployeesToFile(employees, MAX_EMPLOYEES);
+    printf("\033[0;32m%d Records updated. Changes saved.\n\033[0m", changesSaved);
+    return 1;
 }

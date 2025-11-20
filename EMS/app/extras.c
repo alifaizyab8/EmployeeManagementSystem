@@ -91,7 +91,8 @@ void searchMenu(struct Employee employees[], int *employeeCount)
         printf("1. Search by ID\n");
         printf("2. Search by Name\n");
         printf("3. Search by Age\n");
-        printf("4. Return to Main Menu\n");
+        printf("4.Search by Position\n");
+        printf("5. Return to Main Menu\n");
         printf("Enter your choice: ");
 
         if (scanf("%d", &searchChoice) != 1)
@@ -108,22 +109,37 @@ void searchMenu(struct Employee employees[], int *employeeCount)
             printf("Search by ID selected, under development\n");
         }
         else if (searchChoice == 2)
+
         {
             // searchByName function
             searchbyName(employees, *employeeCount);
+
         }
         else if (searchChoice == 3)
         {
+
             // searchByAge function
             searchbyAge(employees, *employeeCount);
+
         }
         else if (searchChoice == 4)
         {
+
+            // searchByPosition function
+            searchbyposition(employees, *employeeCount);
+
+        }
+        else if (searchChoice == 5)
+        {
+
             return;
+
         }
         else
         {
+
             printf("Invalid choice! Try again.\n");
+            
         }
 
         printf("\nPress Enter to continue...");

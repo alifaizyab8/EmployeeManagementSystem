@@ -19,21 +19,16 @@ int strcmp_custom(const char *str1, const char *str2)
 
         str1++;
         str2++;
-
     }
 
     return *(const unsigned char *)str1 - *(const unsigned char *)str2;
 }
 
-
 int isalpha_custom(char c)
 {
 
     return ((c >= 'A' && c <= 'Z') || (c >= 'a' && c <= 'z') || (c == ' '));
-
 }
-
-
 
 void toLowercase_custom(char *str)
 {
@@ -46,25 +41,25 @@ void toLowercase_custom(char *str)
     }
 }
 
-
 void NameFormat_custom(char *str)
 {
     toLowercase_custom(str);
-    while(1){
-        
+    while (1)
+    {
+
         if (str[0] == ' ')
         {
             for (int i = 0; str[i] != '\0'; i++)
             {
                 str[i] = str[i + 1];
             }
-
         }
-        else{
+        else
+        {
             break;
         }
     }
-        
+
     if (str[0] >= 'a' && str[0] <= 'z')
     {
         str[0] = str[0] - ('a' - 'A');
@@ -78,15 +73,15 @@ void NameFormat_custom(char *str)
             str[i] = str[i] - ('a' - 'A');
         }
     }
-
 }
 
-void strcpy_custom(char *dest, const char *src) {
+void strcpy_custom(char *dest, const char *src)
+{
 
     int i = 0;
-    
-    while(src[i] != '\0')
-     {
+
+    while (src[i] != '\0')
+    {
         dest[i] = src[i];
         i++;
     }

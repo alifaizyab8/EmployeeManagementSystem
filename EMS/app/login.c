@@ -5,7 +5,7 @@
 #include "../include/search.h"
 #include "../include/libraryfunc.h"
 
-int userID; 
+int userID;
 char userPASS[7];
 
 void printEMS()
@@ -41,7 +41,7 @@ void line()
 
 void displayLoginScreen()
 {
-    
+
     line();
     printf("\n\n");
     printEMS();

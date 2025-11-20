@@ -15,12 +15,11 @@ void showMenu(struct Employee employees[], int *employeeCount)
     {
         system("cls");
 
-
         printf("\n\033[1;36m=====================================\033[0m\n");
         printf("\033[1;33m        EMPLOYEE MANAGEMENT MENU      \033[0m\n");
         printf("     \033[1;35mDatabase Status: %d / %d Slots\033[0m    \n", *employeeCount, MAX_EMPLOYEES);
         printf("\033[1;36m=====================================\033[0m\n");
-        
+
         printf("1. Employee List\n");
         printf("2. Add New Employee\n");
         printf("3. Remove Employee\n");

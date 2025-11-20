@@ -15,6 +15,7 @@
     4. searchByDepartment
 */
 
+
 void searchbyID(struct Employee employees[], int size)
 {
     system("cls");
@@ -47,12 +48,12 @@ void searchbyID(struct Employee employees[], int size)
         if (employees[i].id == id)
         {
 
-            printf("\033[1;33m%-5s %-15s %-15s %-5s %-15s %-10s %-12s %-10s %-10s\033[0m\n",
+            printf("\033[1;33m%-5s %-15s %-15s %-5s %-25s %-13s %-5s %-10s %-5s\033[0m\n",
                    "ID", "First Name", "Last Name", "Age", "Position", "Salary", "Working Hrs", "Overtime", "Rating");
 
             line();
 
-            printf("%-5d %-15s %-15s %-5d %-15s %-10.2f %-12d %-10d %-10.2f\n",
+            printf("%-5d %-15s %-15s %-5d %-25s %-15.2f %-10d %-10d %-5.1f\n",
                    employees[i].id,
                    employees[i].emp.firstname,
                    employees[i].emp.lastname,
@@ -77,6 +78,8 @@ void searchbyID(struct Employee employees[], int size)
     }
     line();
 }
+
+
 
 void searchbyName(struct Employee employees[], int size)
 {
@@ -126,15 +129,17 @@ void searchbyName(struct Employee employees[], int size)
         secName[idx++] = ch;
     }
     secName[idx] = '\0';
+    
 
     if (strlen_custom(secName) > 0)
     {
         toLowercase_custom(secName);
     }
 
+
     // Display results
     line();
-    printf("\033[1;33m%-5s %-15s %-15s %-5s %-15s %-10s %-12s %-10s %-10s\033[0m\n",
+    printf("\033[1;33m%-5s %-15s %-15s %-5s %-25s %-13s %-5s %-10s %-5s\033[0m\n",
            "ID", "First Name", "Last Name", "Age", "Position", "Salary", "Working Hrs", "Overtime", "Rating");
     line();
 
@@ -154,7 +159,7 @@ void searchbyName(struct Employee employees[], int size)
             // If second name provided, check it too
             if (strlen_custom(secName) == 0 || strcmp_custom(tempLast, secName) == 0)
             {
-                printf("%-5d %-15s %-15s %-5d %-15s %-10.2f %-12d %-10d %-10.2f\n",
+                printf("%-5d %-15s %-15s %-5d %-25s %-15.2f %-10d %-10d %-5.1f\n",
                        employees[i].id,
                        employees[i].emp.firstname,
                        employees[i].emp.lastname,
@@ -214,13 +219,13 @@ void searchbyAge(struct Employee employees[], int size)
                 if (l == 0)
                 {
 
-                    printf("\033[1;33m%-5s %-15s %-15s %-5s %-15s %-10s %-12s %-10s %-10s\033[0m\n",
+                    printf("\033[1;33m%-5s %-15s %-15s %-5s %-25s %-13s %-5s %-10s %-5s\033[0m\n",
                            "ID", "First Name", "Last Name", "Age", "Position", "Salary", "Working Hrs", "Overtime", "Rating");
                     line();
                     l++;
                 }
 
-                printf("%-5d %-15s %-15s %-5d %-15s %-10.2f %-12d %-10d %-10.2f\n",
+                printf("%-5d %-15s %-15s %-5d %-25s %-15.2f %-10d %-10d %-5.1f\n",
                        employees[i].id,
                        employees[i].emp.firstname,
                        employees[i].emp.lastname,
@@ -282,6 +287,7 @@ void searchbyAge(struct Employee employees[], int size)
 void searchbyposition(struct Employee employees[], int size)
 {
 
+
     system("cls");
     char pos[50];
 
@@ -318,7 +324,8 @@ void searchbyposition(struct Employee employees[], int size)
     else
     {
 
-        printf("\033[1;33m%-5s %-15s %-15s %-5s %-15s %-10s %-12s %-10s %-10s\033[0m\n",
+
+        printf("\033[1;33m%-5s %-15s %-15s %-5s %-25s %-13s %-5s %-10s %-5s\033[0m\n",
                "ID", "First Name", "Last Name", "Age", "Position", "Salary", "Working Hrs", "Overtime", "Rating");
         line();
 
@@ -332,7 +339,7 @@ void searchbyposition(struct Employee employees[], int size)
             if (strcmp_custom(temppos2, pos) == 0)
             {
 
-                printf("%-5d %-15s %-15s %-5d %-15s %-10.2f %-12d %-10d %-10.2f\n",
+                printf("%-5d %-15s %-15s %-5d %-25s %-15.2f %-10d %-10d %-5.1f\n",
                        employees[i].id,
                        employees[i].emp.firstname,
                        employees[i].emp.lastname,

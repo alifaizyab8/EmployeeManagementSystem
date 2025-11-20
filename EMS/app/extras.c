@@ -106,7 +106,7 @@ void searchMenu(struct Employee employees[], int *employeeCount)
         if (searchChoice == 1)
         {
             // searchByID function
-            printf("Search by ID selected, under development\n");
+            searchbyID(employees, *employeeCount);
         }
         else if (searchChoice == 2)
 
@@ -139,7 +139,7 @@ void searchMenu(struct Employee employees[], int *employeeCount)
         {
 
             printf("Invalid choice! Try again.\n");
-            
+
         }
 
         printf("\nPress Enter to continue...");

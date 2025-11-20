@@ -97,4 +97,3 @@
 197,Abid,Ali,28,Python Developer,92000.00,40,6,4.50
 198,Yasir,Shah,32,Cloud Architect,138000.00,40,7,4.80
 199,Mohammad,Amir,30,Senior Mobile Dev,118000.00,40,9,4.60
-200,Hassan,Ali,27,SQA Automation,85000.00,40,5,4.40

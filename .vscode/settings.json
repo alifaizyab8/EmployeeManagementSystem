@@ -1,3 +1,6 @@
 {
-    "makefile.makefilePath": "C:\\Users\\alifa\\Documents\\CIS-Semester-Project\\EMS\\app\\"
+    "makefile.makefilePath": "C:\\Users\\alifa\\Documents\\CIS-Semester-Project\\EMS\\app\\",
+    "files.associations": {
+        "search.h": "c"
+    }
 }

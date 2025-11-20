@@ -7,12 +7,18 @@
 
 // Display a single employee by id
 // same functionality can be implemented to list all the employees
+
+//const used in definition to catch if function tries to modify the array 
+
 void displaySingleEmployee(const struct Employee employees[], int size, int id)
 {
+    //Bit that will turn high if employee with the passed id is found
     int found = 0;
     line();
     printf("\n\033[1;34mEmployee Details\033[0m\n");
-
+    
+    //id search loop, iterate through the whole array
+    
     for (int i = 0; i < size; i++)
     {
         if (employees[i].id == id)
@@ -22,7 +28,7 @@ void displaySingleEmployee(const struct Employee employees[], int size, int id)
                    "ID", "First Name", "Last Name", "Age", "Position", "Salary", "Working Hrs", "Overtime", "Rating");
             line();
 
-            // Employee Data
+            // Employee Data Printing
             printf("%-5d %-15s %-15s %-5d %-15s %-10.2f %-12d %-10d %-10.2f\n",
                    employees[i].id,
                    employees[i].emp.firstname,
@@ -38,7 +44,7 @@ void displaySingleEmployee(const struct Employee employees[], int size, int id)
             break;
         }
     }
-
+    // If Employee not found then found bit remains zero
     if (!found)
     {
         printf("\033[1;31mEmployee with ID %d not found.\033[0m\n", id);
@@ -83,13 +89,13 @@ int addEmployee(struct Employee employees[], int *count)
         printf("Cannot add more employees. Maximum limit reached.\n");
         return 0;
     }
-
+    //Define single Employee struct
     struct Employee newEmp;
     int validID_Check = 0;
     line();
     printf("\033[1;34mEmployee Addition Window\033[0m\n");
     line();
-
+    //Populate the struct with input validation at each step
     // ID check and input
     while (1)
     {
@@ -98,8 +104,7 @@ int addEmployee(struct Employee employees[], int *count)
         {
             printf("Invalid ID. Please enter a valid number as 1 < ID < 1000\n");
             // clear scanf buffer
-            while (getchar() != '\n')
-                ;
+            while (getchar() != '\n');
             continue;
         }
 
@@ -109,7 +114,6 @@ int addEmployee(struct Employee employees[], int *count)
         {
             if (employees[i].id == newEmp.id)
             {
-                // \033[1;31mThis text is red!\033[0m\n
                 printf("\033[1;31m ERROR : Employee with ID %d already Exists\033[0m\n", newEmp.id);
                 validID_Check = 0;
                 break;
@@ -125,14 +129,15 @@ int addEmployee(struct Employee employees[], int *count)
     // First name input and validation
     while (1)
     {
+        //Input first name untill correct input
         printf("Enter First Name: ");
         if (scanf("%49[^\n]", newEmp.emp.firstname) != 1)
         {
             printf("Invalid input. Try again.\n");
-            while (getchar() != '\n')
-                ;
+            while (getchar() != '\n');
             continue;
         }
+        //considering that the input is wrong i.e invalidInput bit is high
         int invalidInputBit = 1;
         for (int i = 0; newEmp.emp.firstname[i] != '\0'; i++)
         {
@@ -145,12 +150,10 @@ int addEmployee(struct Employee employees[], int *count)
         if (invalidInputBit)
             break;
         printf("Name can only contain letters and spaces.\n");
-        while (getchar() != '\n')
-            ;
+        
     }
 
-    while (getchar() != '\n')
-        ; // clear input buffer
+    while (getchar() != '\n') ; // clear input buffer
 
     // Last name
     while (1)
@@ -163,6 +166,7 @@ int addEmployee(struct Employee employees[], int *count)
                 ;
             continue;
         }
+        //considering that the input is wrong i.e invalidInput bit is high
         int invalidInputBit = 1;
         for (int i = 0; newEmp.emp.lastname[i] != '\0'; i++)
         {
@@ -175,8 +179,7 @@ int addEmployee(struct Employee employees[], int *count)
         if (invalidInputBit)
             break;
         printf("Name can only contain letters and spaces.\n");
-        while (getchar() != '\n')
-            ;
+       
     }
     // clear buffer
     while (getchar() != '\n')
@@ -185,7 +188,9 @@ int addEmployee(struct Employee employees[], int *count)
     // Age
     while (1)
     {
+        //input and validate age
         printf("Enter Age (18-70): ");
+        //check if age is within a resonable value
         if (scanf("%d", &newEmp.age) != 1 || newEmp.age < 18 || newEmp.age > 70)
         {
             printf("Invalid age. Try again.\n");
@@ -196,8 +201,7 @@ int addEmployee(struct Employee employees[], int *count)
         break;
     }
 
-    while (getchar() != '\n')
-        ;
+    while (getchar() != '\n'); // clear buffer
 
     // Position
     while (1)
@@ -210,18 +214,20 @@ int addEmployee(struct Employee employees[], int *count)
                 ;
             continue;
         }
+        //Position must be provided to continue to the next field
         if (strlen_custom(newEmp.position) > 0)
             break;
         printf("Position cannot be empty.\n");
-        while (getchar() != '\n')
-            ;
+        
     }
     while (getchar() != '\n')
         ;
     // Salary
     while (1)
-    {
+    {    
+        //Input salary float value
         printf("Enter Salary (1000-1000000): ");
+        //check if salary is in a reasonable range
         if (scanf("%f", &newEmp.salary) != 1 || newEmp.salary < 1000 || newEmp.salary > 1000000)
         {
             printf("Invalid salary. Try again.\n");
@@ -238,6 +244,7 @@ int addEmployee(struct Employee employees[], int *count)
     // Working hours
     while (1)
     {
+        //input and validate working hours
         printf("Enter Working Hours (0-40): ");
         if (scanf("%d", &newEmp.working_hours) != 1 || newEmp.working_hours < 0 || newEmp.working_hours > 40)
         {
@@ -249,10 +256,12 @@ int addEmployee(struct Employee employees[], int *count)
         break;
     }
 
+    //for a new employee, overtime and perofrmance rating are automatically set to zero...they can be edited later 
     newEmp.over_time = 0;
     newEmp.performance_rating = 0.0;
 
     // save to first empty slot
+    //Where ever a slot is empty, the employee is saved
     for (int i = 0; i < MAX_EMPLOYEES; i++)
     {
         if (employees[i].id == 0)

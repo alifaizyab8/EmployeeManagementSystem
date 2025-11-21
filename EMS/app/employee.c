@@ -534,7 +534,7 @@ int editEmployee(struct Employee employees[], int count, int id)
 
         if (choice == 9)
             break; // Save and exit (to be called after all the required fields are updated)
-        if (choice == 0)
+        if (choice == 10)
             return 0; // Cancel (No save)
 
         switch (choice)
@@ -560,6 +560,7 @@ int editEmployee(struct Employee employees[], int count, int id)
                     }
                 }
                 if (!invalid)
+                NameFormat_custom(employees[index].emp.firstname);
                     break;
                 printf("Name can only contain letters and spaces.\n");
                 while (getchar() != '\n')
@@ -589,6 +590,7 @@ int editEmployee(struct Employee employees[], int count, int id)
                     }
                 }
                 if (!invalid)
+                NameFormat_custom(employees[index].emp.lastname);
                     break;
                 printf("Name can only contain letters and spaces.\n");
                 while (getchar() != '\n')
@@ -633,6 +635,8 @@ int editEmployee(struct Employee employees[], int count, int id)
                     break;
                 printf("Position cannot be empty.\n");
             }
+                NameFormat_custom(employees[index].position);
+
             while (getchar() != '\n')
                 ;
             break;

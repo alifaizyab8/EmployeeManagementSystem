@@ -20,7 +20,6 @@
 120,Taimoor,Hassan,32,Product Owner,125000.00,40,4,4.60
 121,Farhan,Ali,29,Backend Developer,96000.00,40,9,4.50
 122,Javeria,Aslam,27,Frontend Developer,91000.00,40,7,4.40
-123,Waqas,Ahmed,35,System Architect,145000.00,40,6,4.90
 124,Kinza,Noor,22,Intern Developer,35000.00,30,0,3.80
 125,Daniyal,Bhatti,23,Intern Developer,35000.00,30,0,3.90
 126,Mahnoor,Shah,26,HR Executive,60000.00,40,2,4.30
@@ -39,7 +38,7 @@
 139,Rimsha,Tariq,29,Content Strategist,68000.00,40,2,4.30
 140,Uzair,Jaswal,31,Cyber Security Lead,120000.00,40,5,4.70
 141,Hassan,Ali,22,Intern QA,30000.00,30,0,3.70
-142,Maheen,Akbar,28,Angular Developer,90000.00,40,7,4.40
+142,Maheen,UL Muslim,28,Angular Developer,90000.00,40,7,4.40
 143,Shoaib,Malik,34,Senior DevOps,125000.00,40,12,4.80
 144,Sidra,Batool,26,Recruiter,55000.00,40,2,4.10
 145,Adeel,Chaudhry,30,Full Stack Dev,112000.00,40,10,4.60
@@ -96,4 +95,5 @@
 196,Fawad,Alam,37,Legacy Code Specialist,125000.00,40,4,4.80
 197,Abid,Ali,28,Python Developer,92000.00,40,6,4.50
 198,Yasir,Shah,32,Cloud Architect,138000.00,40,7,4.80
-199,Mohammad,Amir,30,Senior Mobile Dev,118000.00,40,9,4.60
+123,Waqar,Wasif,19,Graphic Designer,0.00,0,0,0.00
+567,Hamza Khan,Baloch,34,Teacher,4567.00,3,0,0.00

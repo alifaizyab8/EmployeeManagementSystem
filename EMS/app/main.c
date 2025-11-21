@@ -5,7 +5,7 @@
 #include "../include/search.h"
 int main()
 {
-        displayLoginScreen();
+        // displayLoginScreen();
         // Very Important Lines below
         struct Employee employees[MAX_EMPLOYEES];
         int employeeCount = loadEmployee(employees, MAX_EMPLOYEES);

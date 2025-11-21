@@ -3,9 +3,11 @@
 #define SEARCH_H
 #include "employee.h"
 
-void searchbyID(struct Employee employees[], int size);
-void searchbyName(struct Employee employees[], int size);
-void searchbyAge(struct Employee employees[], int size);
-void searchbyposition(struct Employee employees[], int size);
+// Function prototypes for search functionalities
+
+void searchbyID(struct Employee employees[], int size); // Search employee by ID
+void searchbyName(struct Employee employees[], int size); // Search employee by Name
+void searchbyAge(struct Employee employees[], int size); // Search employee by Age
+void searchbyposition(struct Employee employees[], int size); // Search employee by Position
 
 #endif

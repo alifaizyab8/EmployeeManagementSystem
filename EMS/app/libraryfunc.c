@@ -15,6 +15,7 @@ int strlen_custom(const char *str)
     return length;
 }
 
+
 // like function in string.h but custom made.
 //This function compares two strings and returns 0 if they are equal,
 // a negative value if str1 < str2, and a positive value if str1 > str2

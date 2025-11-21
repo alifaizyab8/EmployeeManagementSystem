@@ -1,29 +1,72 @@
 #!/bin/bash
 
+# 1. Define the authors to track
 authors=("alifaizyab8" "waqarwasif" "AnsharaAmir")
 
-total_commits=0
+# Initialize arrays to store data so we don't have to run git commands twice
+declare -a author_commits
+declare -a author_insertions
+declare -a author_deletions
 
-# Calculate total commits
-for author in "${authors[@]}"; do
-    commits=$(git log --author="$author" --oneline | wc -l)
-    total_commits=$((total_commits + commits))
+total_group_commits=0
+
+echo "Calculating statistics... (This may take a moment for large repos)"
+
+# 2. Loop through authors to gather data
+for i in "${!authors[@]}"; do
+    author="${authors[$i]}"
+    
+    # Get Commit Count
+    # --all: looks at all branches, not just the current one
+    # --no-merges: excludes merge commits (optional, usually gives cleaner stats)
+    count=$(git log --author="$author" --all --no-merges --oneline | wc -l)
+    
+    # Store commit count in array and add to total
+    author_commits[$i]=$count
+    total_group_commits=$((total_group_commits + count))
+
+    # Get Insertions and Deletions
+    # --numstat: gives strict number columns (added deleted filename)
+    # awk: sums column 1 (inserts) and column 2 (deletes). Ignores binary files ("-").
+    stats=$(git log --author="$author" --all --no-merges --pretty=tformat: --numstat | \
+    awk '
+        $1 != "-" && $2 != "-" { 
+            ins += $1; 
+            del += $2 
+        } 
+        END { 
+            print ins+0, del+0 
+        }
+    ')
+
+    # Store stats in arrays
+    author_insertions[$i]=$(echo "$stats" | cut -d ' ' -f1)
+    author_deletions[$i]=$(echo "$stats" | cut -d ' ' -f2)
 done
 
-# Print header
-printf "%-15s %-8s %-12s %-10s %-12s\n" "Author" "Commits" "Insertions" "Deletions" "Contribution %"
+# 3. Print the Header
+echo "------------------------------------------------------------------------"
+printf "%-15s %-10s %-12s %-12s %-15s\n" "Author" "Commits" "Insertions" "Deletions" "Contribution %"
+echo "------------------------------------------------------------------------"
 
-# Loop through authors
-for author in "${authors[@]}"; do
-    commits=$(git log --author="$author" --oneline | wc -l)
-    stats=$(git log --author="$author" --pretty=tformat: --shortstat | awk '
-        /insertions/ {ins += $4; del += $6} 
-        END {print ins, del}')
-    insertions=$(echo $stats | awk '{print $1}')
-    deletions=$(echo $stats | awk '{print $2}')
-    percent=0
-    if [ $total_commits -ne 0 ]; then
-        percent=$(( commits * 100 / total_commits ))
+# 4. Print the Data
+for i in "${!authors[@]}"; do
+    author="${authors[$i]}"
+    commits="${author_commits[$i]}"
+    insertions="${author_insertions[$i]}"
+    deletions="${author_deletions[$i]}"
+    
+    # Calculate percentage (based on total commits of this group)
+    if [ "$total_group_commits" -gt 0 ]; then
+        # Floating point calculation using awk for precision
+        percent=$(awk "BEGIN {printf \"%.1f\", ($commits * 100) / $total_group_commits}")
+    else
+        percent="0.0"
     fi
-    printf "%-15s %-8s %-12s %-10s %-12s\n" "$author" "$commits" "$insertions" "$deletions" "$percent%"
+
+    # Print formatted row
+    printf "%-15s %-10s %-12s %-12s %-15s\n" "$author" "$commits" "$insertions" "$deletions" "$percent%"
 done
+
+echo "------------------------------------------------------------------------"
+echo "Total Commits by Group: $total_group_commits"

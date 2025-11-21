@@ -95,5 +95,5 @@
 196,Fawad,Alam,37,Legacy Code Specialist,125000.00,40,4,4.80
 197,Abid,Ali,28,Python Developer,92000.00,40,6,4.50
 198,Yasir,Shah,32,Cloud Architect,138000.00,40,7,4.80
-123,Waqar,Wasif,19,Graphic Designer,0.00,0,0,0.00
+123,Waqar,Wasif,19,Graphic Designer,999999.00,0,0,0.00
 567,Hamza Khan,Baloch,34,Teacher,4567.00,3,0,0.00

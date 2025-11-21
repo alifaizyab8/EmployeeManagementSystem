@@ -8,6 +8,7 @@
 int userID;
 char userPASS[7];
 
+// Function to print EMS in stylized text format
 void printEMS()
 {
     printf("\033[1;95m");
@@ -20,6 +21,8 @@ void printEMS()
     printf("\033[0m");
     printf("\n");
 }
+
+// Function to print Login Title in stylized text format
 void printLoginTitle()
 {
     printf("\033[1;95m");
@@ -30,6 +33,8 @@ void printLoginTitle()
     printf("\t\tLLLLL   OOO    GGGG III N  NN    P      OOO  R  R    T A     A LLLLL\n");
     printf("\033[0m\n");
 }
+
+// Function to print a line separator
 void line()
 {
     for (int i = 0; i < 150; i++)
@@ -39,6 +44,8 @@ void line()
     printf("\n");
 }
 
+// Function to display the login screen and handle user authentication
+// Prompts user for ID and password, verifies against stored credentials from file
 void displayLoginScreen()
 {
 
@@ -61,8 +68,24 @@ void displayLoginScreen()
     {
         printf("\033[1;35mUser ID: \033[0m");
         scanf("%d", &userID);
+        while (getchar() != '\n')
+            ;
+        while(1){    
         printf("\033[1;35mPassword: \033[0m");
         scanf("%s", userPASS);
+        while (getchar() != '\n')
+            ;
+        
+            // Password length check. Length should be 6-7 characters
+        if(strlen_custom(userPASS) <6 || strlen_custom(userPASS) >7){
+            printf("\033[31mPassword must be 6-7 characters long. Try Again.\033[0m\n");
+            continue;
+        }
+        else{
+
+            break;
+        }
+    }
 
         char file_line[50];
         int login_success = 0;
@@ -73,12 +96,14 @@ void displayLoginScreen()
             char file_password[7];
             sscanf(file_line, "%d,%6s", &file_userID, file_password);
 
+            // Compare input credentials with file credentials
             if (userID == file_userID && strcmp_custom(userPASS, file_password) == 0)
             {
                 printf("\033[1;32mLogin Successful! Welcome User %d\033[0m\n", userID);
                 login_success = 1;
                 break;
             }
+
         }
 
         if (login_success)
@@ -91,6 +116,7 @@ void displayLoginScreen()
             rewind(fp); // Reset file pointer to the beginning for the next attempt
         }
     }
+    
     printf("\n");
     line();
     printf("\n\n");

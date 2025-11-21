@@ -98,7 +98,7 @@ int addEmployee(struct Employee employees[], int *count)
         printf("Enter Employee ID (1 < ID < 1000): ");
         // We read the Int AND the char after it.
         // if user types "111" and enter, term becomes '\n'.
-        // if user types "111a", term becomes 'a'.
+        // if user types "111efu", term becomes 'a'.
         if (scanf("%d%c", &newEmp.id, &term) != 2 || term != '\n')
         {
             printf("Invalid ID. Please enter a numeric value only.\n");
@@ -154,8 +154,12 @@ int addEmployee(struct Employee employees[], int *count)
                 break;
             }
         }
-        if (invalidInputBit)
-            break;
+        if (invalidInputBit){
+            NameFormat_custom(newEmp.emp.firstname);
+            break; 
+        }
+
+            
 
         printf("Name can only contain letters and spaces.\n");
         while (getchar() != '\n')
@@ -187,6 +191,7 @@ int addEmployee(struct Employee employees[], int *count)
             }
         }
         if (invalidInputBit)
+         NameFormat_custom(newEmp.emp.lastname);
             break;
 
         printf("Name can only contain letters and spaces.\n");
@@ -230,6 +235,7 @@ int addEmployee(struct Employee employees[], int *count)
             continue;
         }
         if (strlen_custom(newEmp.position) > 0)
+        NameFormat_custom(newEmp.position);
             break;
 
         printf("Position cannot be empty.\n");

@@ -111,3 +111,31 @@ void strcpy_custom(char *dest, const char *src)
     }
     dest[i] = '\0';
 }
+
+//This function checks if a string contains only digit characters (0-9)
+// Returns 1 if all characters are digits, 0 otherwise
+int isDigitString_custom(const char *str)
+{
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        if (!(str[i] >= '0' && str[i] <= '9'))
+            return 0;  // not a digit
+        i++;
+    }
+    return 1; // all digits
+}
+
+//This function converts a numeric string to an integer
+// e.g "123" becomes 123
+int atoi_custom(const char *str)
+{
+    int result = 0;
+    int i = 0;
+    while (str[i] != '\0')
+    {
+        result = result * 10 + (str[i] - '0');
+        i++;
+    }
+    return result;
+}

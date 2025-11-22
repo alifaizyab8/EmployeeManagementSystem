@@ -25,9 +25,10 @@ void showMenu(struct Employee employees[], int *employeeCount)
         printf("3. Remove Employee\n");
         printf("4. Search Employee\n");
         printf("5. Edit Employee Details\n");
-        printf("6. Exit\n");
+        printf("6. Display Highest Paid Employees\n");
+        printf("7. Exit\n");
         printf("\033[1;36m-------------------------------------\033[0m\n");
-        printf("Enter your choice (1-6): ");
+        printf("Enter your choice (1-7): ");
 
         // If scanf fails or if the char after the number isn't a
         if (scanf("%d%c", &choice, &term) != 2 || term != '\n')
@@ -105,7 +106,10 @@ void showMenu(struct Employee employees[], int *employeeCount)
             }
 
             break;
-        case 6:
+             case 6:
+             highestPaidEmployee(employees, *employeeCount);
+            break;
+        case 7:
             printf("\n\033[1;35mExiting program... Goodbye!\033[0m\n");
             exit(0);
         default:

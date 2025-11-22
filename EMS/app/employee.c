@@ -468,6 +468,7 @@ void displayAllEmployees(const struct Employee employees[], int employeeCount)
                    employees[i].over_time,
                    employees[i].performance_rating);
         }
+        printf("\n");
     }
 
     line();
@@ -720,6 +721,7 @@ void highestPaidEmployee(const struct Employee employees[], int size)
                    employees[i].performance_rating);
 
             found = 1;
+            printf("\n");
         }
     }
 

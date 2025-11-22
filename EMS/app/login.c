@@ -5,7 +5,9 @@
 #include "../include/search.h"
 #include "../include/libraryfunc.h"
 
+
 int userID;
+char userIDstr[7];
 char userPASS[7];
 
 // Function to print EMS in stylized text format
@@ -67,9 +69,22 @@ void displayLoginScreen()
     while (1)
     {
         printf("\033[1;35mUser ID: \033[0m");
-        scanf("%d", &userID);
+        scanf("%s", userIDstr);
         while (getchar() != '\n')
             ;
+        while(1){
+            if (!isDigitString_custom(userIDstr)){
+                printf("\033[31mUser ID must be numeric. Try Again.\033[0m\n");
+                printf("\033[1;35mUser ID: \033[0m");
+                scanf("%s", userIDstr);
+                while(getchar() != '\n')
+                    ;
+            }
+            else{
+                userID = atoi_custom(userIDstr);
+                break;
+            }
+        }
         while(1){    
         printf("\033[1;35mPassword: \033[0m");
         scanf("%s", userPASS);
@@ -77,8 +92,8 @@ void displayLoginScreen()
             ;
         
             // Password length check. Length should be 6-7 characters
-        if(strlen_custom(userPASS) <6 || strlen_custom(userPASS) >7){
-            printf("\033[31mPassword must be 6-7 characters long. Try Again.\033[0m\n");
+        if(strlen_custom(userPASS) <6){
+            printf("\033[31mPassword must be atleast 6 characters long. Try Again.\033[0m\n");
             continue;
         }
         else{
@@ -116,7 +131,7 @@ void displayLoginScreen()
             rewind(fp); // Reset file pointer to the beginning for the next attempt
         }
     }
-    
+
     printf("\n");
     line();
     printf("\n\n");

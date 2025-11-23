@@ -457,7 +457,7 @@ void displayAllEmployees(const struct Employee employees[], int employeeCount)
     {
         if (employees[i].id != 0)
         {
-            printf("%-5d %-15s %-15s %-5d %-22s %-20f %-12d %-10d %-10.2f\n",
+            printf("%-5d %-15s %-15s %-5d %-22s %-20.1f %-12d %-10d %-10.2f\n",
                    employees[i].id,
                    employees[i].emp.firstname,
                    employees[i].emp.lastname,
@@ -467,8 +467,9 @@ void displayAllEmployees(const struct Employee employees[], int employeeCount)
                    employees[i].working_hours,
                    employees[i].over_time,
                    employees[i].performance_rating);
+            printf("\n");
         }
-        printf("\n");
+        
     }
 
     line();

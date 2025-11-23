@@ -12,10 +12,9 @@ int main()
         displayLoginScreen();
 
         // Initialize an array of Employee structures to store all employee data
-        // MAX_EMPLOYEES ensures we don't exceed the allocated size
         struct Employee employees[MAX_EMPLOYEES];
 
-         // Load employee records from storage (file/database)
+        // Load employee records from .txt
         // Returns the number of employees successfully loaded
         int employeeCount = loadEmployee(employees, MAX_EMPLOYEES);
 
@@ -23,7 +22,7 @@ int main()
         // Pass employee data and count so menu options can modify them
         showMenu(employees, &employeeCount);
 
-        return 0; // End of program
+        return 0;
 }
 /*
 To run the program, compile all the .c files together and execute the resulting binary.

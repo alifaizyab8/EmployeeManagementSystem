@@ -89,7 +89,7 @@ void showMenu(struct Employee employees[], int *employeeCount)
             break;
 
         case 5:
-            // fully independent edit function with its own menu so no external menu needed 
+            // fully independent edit function with its own menu so no external menu needed
             printf("\n\033[1;34m--- EDIT EMPLOYEE ---\033[0m\n");
             printf("Enter Employee ID to edit: ");
             if (scanf("%d", &id) != 1)
@@ -106,8 +106,8 @@ void showMenu(struct Employee employees[], int *employeeCount)
             }
 
             break;
-             case 6:
-             highestPaidEmployee(employees, *employeeCount);
+        case 6:
+            highestPaidEmployee(employees, *employeeCount);
             break;
         case 7:
             printf("\n\033[1;35mExiting program... Goodbye!\033[0m\n");

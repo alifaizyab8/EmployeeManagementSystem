@@ -21,7 +21,6 @@ struct Employee
     float performance_rating;
 };
 
-
 int addEmployee(struct Employee employees[], int *count);
 
 int removeEmployee(struct Employee employees[], int *count, int id);

@@ -10,7 +10,7 @@ declare -a author_deletions
 
 total_group_commits=0
 
-echo "Calculating statistics... (This may take a moment for large repos)"
+echo "Calculating statistics..."
 
 # 2. Loop through authors to gather data
 for i in "${!authors[@]}"; do

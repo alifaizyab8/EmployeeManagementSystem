@@ -25,7 +25,7 @@ void showMenu(struct Employee employees[], int *employeeCount)
         printf("3. Remove Employee\n");
         printf("4. Search Employee\n");
         printf("5. Edit Employee Details\n");
-        printf("6. Display Highest Paid Employees\n");
+        printf("6. Display Highly Paid Employees\n");
         printf("7. Exit\n");
         printf("\033[1;36m-------------------------------------\033[0m\n");
         printf("Enter your choice (1-7): ");

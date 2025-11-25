@@ -9,7 +9,7 @@
 109,Maha,Javed,25,Frontend Developer,88000.00,40,8,4.30
 110,Ali,Raza,34,QA Lead,115000.00,40,5,4.70
 111,Sadia,Karim,29,Manual QA Engineer,75000.00,40,4,4.20
-112,Hamza,Tariq,27,Automation Engineer,89000.00,40,6,4.60
+112,Hamza,Tariq,27,Automation Engineer,89000.00,40,8,3.80
 113,Rabia,Basri,26,UI/UX Designer,85000.00,40,5,4.50
 114,Kashif,Mehmood,30,DevOps Engineer,110000.00,40,15,4.80
 115,Nida,Yousuf,28,Mobile Developer,98000.00,40,8,4.60
@@ -35,65 +35,4 @@
 136,Sheheryar,Munir,38,Engineering Manager,155000.00,40,4,4.80
 137,Anum,Fayyuaz,27,Business Analyst,82000.00,40,3,4.40
 138,Fawad,Khan,25,Junior Backend Dev,66000.00,40,6,4.20
-139,Rimsha,Tariq,29,Content Strategist,68000.00,40,2,4.30
-140,Uzair,Jaswal,31,Cyber Security Lead,120000.00,40,5,4.70
-141,Hassan,Ali,22,Intern QA,30000.00,30,0,3.70
-142,Maheen,UL Muslim,28,Angular Developer,90000.00,40,7,4.40
-143,Shoaib,Malik,34,Senior DevOps,125000.00,40,12,4.80
-144,Sidra,Batool,26,Recruiter,55000.00,40,2,4.10
-145,Adeel,Chaudhry,30,Full Stack Dev,112000.00,40,10,4.60
-146,Natasha,Baig,27,UI Designer,75000.00,40,4,4.30
-147,Bilal,Lashari,25,Python Developer,80000.00,40,6,4.20
-148,Zoya,Nasir,23,Support Engineer,50000.00,40,15,4.00
-149,Hamid,Mir,32,Database Admin,100000.00,40,5,4.50
-150,Aleena,Raza,28,Project Coordinator,70000.00,40,3,4.30
-151,Murad,Saeed,26,Laravel Developer,78000.00,40,8,4.20
-152,Iqra,Aziz,24,Junior Designer,45000.00,40,2,3.90
-153,Yasir,Hussain,35,Tech Lead,140000.00,40,7,4.70
-154,Hania,Amir,25,Frontend Developer,82000.00,40,6,4.30
-155,Ahad,Raza,29,Backend Developer,97000.00,40,9,4.50
-156,Sajal,Aly,27,SQA Analyst,72000.00,40,4,4.40
-157,Feroze,Khan,30,Mobile Developer,99000.00,40,8,4.60
-158,Minal,Khan,22,Intern Designer,32000.00,30,0,3.80
-159,Imran,Abbas,39,Director Engineering,165000.00,40,2,4.90
-160,Ayeza,Khan,33,Senior QA,105000.00,40,5,4.70
-161,Danish,Taimoor,31,Senior QA Engineer,95000.00,40,6,4.60
-162,Kubra,Khan,28,Scrum Master,105000.00,40,3,4.70
-163,Ahsan,Khan,35,Solutions Architect,150000.00,40,8,4.90
-164,Ramsha,Khan,26,Frontend Developer,84000.00,40,7,4.40
-165,Wahaj,Ali,29,Backend Developer,96000.00,40,10,4.50
-166,Yumna,Zaidi,27,UX Researcher,82000.00,40,4,4.50
-167,Ahmed,Ali,30,DevOps Engineer,108000.00,40,12,4.70
-168,Sarah,Khan,25,Junior QA,56000.00,40,3,4.10
-169,Bilal,Abbas,32,Team Lead Backend,135000.00,40,9,4.80
-170,Hania,Aamir,24,Junior Mobile Dev,62000.00,40,5,4.20
-171,Gohar,Rasheed,33,Database Administrator,102000.00,40,6,4.60
-172,Farhan,Saeed,34,Junior Developer,58000.00,40,10,4.30
-173,Urwa,Hocane,28,HR Manager,90000.00,40,2,4.50
-174,Mawra,Hocane,26,Social Media Lead,65000.00,40,2,4.40
-175,Shehzad,Roy,40,Venture Lead,160000.00,35,0,4.90
-176,Ali,Zafar,38,Creative Director,145000.00,40,4,4.80
-177,Momina,Mustehsan,27,Content Writer,60000.00,40,1,4.30
-178,Asim,Azhar,25,React Developer,86000.00,40,8,4.40
-179,Iqrar,Ul Hassan,36,Security Analyst,115000.00,40,5,4.70
-180,Waseem,Badami,37,Product Manager,130000.00,40,6,4.60
-181,Nida,Yasir,39,Admin Officer,70000.00,40,1,4.20
-182,Yasir,Nawaz,41,Operations Head,155000.00,40,3,4.80
-183,Aiman,Khan,23,Intern Designer,32000.00,30,0,3.90
-184,Muneeb,Butt,28,Full Stack Dev,110000.00,40,11,4.60
-185,Arshad,Nadeem,24,Senior Developer,125000.00,40,15,4.90
-186,Babar,Azam,29,Team Lead QA,120000.00,40,5,4.80
-187,Shaheen,Afridi,23,Junior DevOps,68000.00,40,8,4.30
-188,Rizwan,Ahmed,31,System Admin,85000.00,40,10,4.50
-189,Shadab,Khan,25,Flutter Developer,89000.00,40,7,4.40
-190,Naseem,Shah,21,Intern Developer,30000.00,30,0,3.80
-191,Haris,Rauf,29,Network Support,72000.00,40,12,4.30
-192,Imad,Wasim,34,Data Analyst,112000.00,40,4,4.60
-193,Sarfaraz,Ahmed,36,Senior Support Lead,95000.00,40,5,4.50
-194,Shan,Masood,33,Technical Recruiter,80000.00,40,3,4.40
-195,Azhar,Ali,29,Director of Sales,140000.00,40,8,4.70
-196,Fawad,Alam,37,Legacy Code Specialist,125000.00,40,4,4.80
-197,Abid,Ali,28,Python Developer,92000.00,40,6,4.50
-198,Yasir,Shah,32,Cloud Architect,138000.00,40,7,4.80
-123,Waqar,Wasif,19,Graphic Designer,999999.00,0,0,0.00
-567,Hamza Khan,Baloch,34,Teacher,4567.00,3,0,0.00
+187,Umer,Tariq,34,Devops Engineer,450000.00,8,0,0.00

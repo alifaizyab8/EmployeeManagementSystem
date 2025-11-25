@@ -681,6 +681,45 @@ int editEmployee(struct Employee employees[], int count, int id)
             }
             break;
 
+        case 7:
+            while (1)
+            {
+                printf("\nUpdate Overtime (Current: %d): ", employees[index].over_time);
+                if (scanf("%d%c", &employees[index].over_time, &term) != 2 || term != '\n')
+                {
+                    printf("Invalid input. Number only.\n");
+                    while (getchar() != '\n')
+                        ;
+                    continue;
+                }
+                if (employees[index].over_time < 0 || employees[index].over_time > 20)
+                {
+                    printf("Range: 0 - 20.\n");
+                    continue;
+                }
+                break;
+            }
+            break;
+        case 8:
+            while (1)
+            {
+                printf("\nUpdate Performance (Current: %.1f): ", employees[index].performance_rating);
+                if (scanf("%f%c", &employees[index].performance_rating, &term) != 2 || term != '\n')
+                {
+                    printf("Invalid input, X.X format only.\n");
+                    while (getchar() != '\n')
+                        ;
+                    continue;
+                }
+                if (employees[index].performance_rating < 0.0f || employees[index].performance_rating > 5.0)
+                {
+                    printf("Range: 0.0 - 5.0 \n");
+                    continue;
+                }
+                break;
+            }
+            break;
+
         default:
             printf("\033[1;31mInvalid choice.\033[0m\n");
             printf("Press Enter...");
@@ -693,7 +732,7 @@ int editEmployee(struct Employee employees[], int count, int id)
     printf("\033[0;32m%d Records updated. Changes saved.\n\033[0m", changesSaved);
     return 1;
 }
-void highLYPaidEmployee(const struct Employee employees[], int size)
+void highlyPaidEmployee(const struct Employee employees[], int size)
 {
     int found = 0;
 
@@ -731,4 +770,4 @@ void highLYPaidEmployee(const struct Employee employees[], int size)
     printf("\n");
 }
 
-// END OF ADD EMPLOYEE DEVELOPMENT 
+// END OF ADD EMPLOYEE DEVELOPMENT

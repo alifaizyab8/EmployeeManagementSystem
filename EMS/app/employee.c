@@ -233,8 +233,8 @@ int addEmployee(struct Employee employees[], int *count)
                 ;
             continue;
         }
-        if (strlen_custom(newEmp.position) > 0)
-            NameFormat_custom(newEmp.position);
+        NameFormat_custom(newEmp.position);
+        if (strlen_custom(newEmp.position) > 0 )
         break;
 
         printf("Position cannot be empty.\n");

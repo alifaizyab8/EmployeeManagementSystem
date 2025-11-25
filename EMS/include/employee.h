@@ -39,6 +39,6 @@ void displayAllEmployees(const struct Employee employees[], int size);
 
 int editEmployee(struct Employee employees[], int count, int id);
 
-void highestPaidEmployee(const struct Employee employees[], int size);
+void highlyPaidEmployee(const struct Employee employees[], int size);
 
 #endif

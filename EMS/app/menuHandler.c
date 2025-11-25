@@ -107,7 +107,7 @@ void showMenu(struct Employee employees[], int *employeeCount)
 
             break;
         case 6:
-            highestPaidEmployee(employees, *employeeCount);
+            highlyPaidEmployee(employees, *employeeCount);
             break;
         case 7:
             printf("\n\033[1;35mExiting program... Goodbye!\033[0m\n");

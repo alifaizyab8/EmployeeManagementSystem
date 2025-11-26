@@ -478,18 +478,17 @@ void displayAllEmployees(const struct Employee employees[], int employeeCount)
 
 int editEmployee(struct Employee employees[], int count, int id)
 {
-    int index = 0;
+    int i;
     // 1. Find the employee index
-    for (int i = 0; i < MAX_EMPLOYEES; i++)
+    for (i = 0; i < MAX_EMPLOYEES; i++)
     {
         if (employees[i].id == id)
         {
-            index = i;
             break;
         }
     }
 
-    if (index == 0)
+    if (i == MAX_EMPLOYEES)
     {
         printf("\033[1;31mEmployee with ID %d not found.\033[0m\n", id);
         return 0;
@@ -506,14 +505,14 @@ int editEmployee(struct Employee employees[], int count, int id)
         line();
 
         // Show current state
-        printf("1. First Name         : %s\n", employees[index].emp.firstname);
-        printf("2. Last Name          : %s\n", employees[index].emp.lastname);
-        printf("3. Age                : %d\n", employees[index].age);
-        printf("4. Position           : %s\n", employees[index].position);
-        printf("5. Salary             : %.2f\n", employees[index].salary);
-        printf("6. Working Hours      : %d\n", employees[index].working_hours);
-        printf("7. Overtime           : %d\n", employees[index].over_time);
-        printf("8. Performance Rating : %.2f\n", employees[index].performance_rating);
+        printf("1. First Name         : %s\n", employees[i].emp.firstname);
+        printf("2. Last Name          : %s\n", employees[i].emp.lastname);
+        printf("3. Age                : %d\n", employees[i].age);
+        printf("4. Position           : %s\n", employees[i].position);
+        printf("5. Salary             : %.2f\n", employees[i].salary);
+        printf("6. Working Hours      : %d\n", employees[i].working_hours);
+        printf("7. Overtime           : %d\n", employees[i].over_time);
+        printf("8. Performance Rating : %.2f\n", employees[i].performance_rating);
         printf("\033[1;32m9. SAVE & RETURN\033[0m\n");
         printf("\033[1;31m10. CANCEL CHANGES\033[0m\n");
         line();
@@ -542,8 +541,8 @@ int editEmployee(struct Employee employees[], int count, int id)
         case 1: // Edit First Name
             while (1)
             {
-                printf("\nUpdate First Name (Current: %s): ", employees[index].emp.firstname);
-                if (scanf("%49[^\n]", employees[index].emp.firstname) != 1)
+                printf("\nUpdate First Name (Current: %s): ", employees[i].emp.firstname);
+                if (scanf("%49[^\n]", employees[i].emp.firstname) != 1)
                 {
                     while (getchar() != '\n')
                         ; // Buffer
@@ -551,16 +550,16 @@ int editEmployee(struct Employee employees[], int count, int id)
                 }
                 // Validation
                 int invalid = 0;
-                for (int k = 0; employees[index].emp.firstname[k] != '\0'; k++)
+                for (int k = 0; employees[i].emp.firstname[k] != '\0'; k++)
                 {
-                    if (!isalpha_custom(employees[index].emp.firstname[k]) && employees[index].emp.firstname[k] != ' ')
+                    if (!isalpha_custom(employees[i].emp.firstname[k]) && employees[i].emp.firstname[k] != ' ')
                     {
                         invalid = 1;
                         break;
                     }
                 }
                 if (!invalid)
-                    NameFormat_custom(employees[index].emp.firstname);
+                    NameFormat_custom(employees[i].emp.firstname);
                 break;
                 printf("Name can only contain letters and spaces.\n");
                 while (getchar() != '\n')
@@ -573,24 +572,24 @@ int editEmployee(struct Employee employees[], int count, int id)
         case 2: // Edit Last Name
             while (1)
             {
-                printf("\nUpdate Last Name (Current: %s): ", employees[index].emp.lastname);
-                if (scanf("%49[^\n]", employees[index].emp.lastname) != 1)
+                printf("\nUpdate Last Name (Current: %s): ", employees[i].emp.lastname);
+                if (scanf("%49[^\n]", employees[i].emp.lastname) != 1)
                 {
                     while (getchar() != '\n')
                         ;
                     continue;
                 }
                 int invalid = 0;
-                for (int k = 0; employees[index].emp.lastname[k] != '\0'; k++)
+                for (int k = 0; employees[i].emp.lastname[k] != '\0'; k++)
                 {
-                    if (!isalpha_custom(employees[index].emp.lastname[k]) && employees[index].emp.lastname[k] != ' ')
+                    if (!isalpha_custom(employees[i].emp.lastname[k]) && employees[i].emp.lastname[k] != ' ')
                     {
                         invalid = 1;
                         break;
                     }
                 }
                 if (!invalid)
-                    NameFormat_custom(employees[index].emp.lastname);
+                    NameFormat_custom(employees[i].emp.lastname);
                 break;
                 printf("Name can only contain letters and spaces.\n");
                 while (getchar() != '\n')
@@ -603,16 +602,16 @@ int editEmployee(struct Employee employees[], int count, int id)
         case 3: // Edit Age
             while (1)
             {
-                printf("\nUpdate Age (Current: %d): ", employees[index].age);
+                printf("\nUpdate Age (Current: %d): ", employees[i].age);
                 // same scanf type of input validation
-                if (scanf("%d%c", &employees[index].age, &term) != 2 || term != '\n')
+                if (scanf("%d%c", &employees[i].age, &term) != 2 || term != '\n')
                 {
                     printf("Invalid input. Number only.\n");
                     while (getchar() != '\n')
                         ;
                     continue;
                 }
-                if (employees[index].age < 18 || employees[index].age > 70)
+                if (employees[i].age < 18 || employees[i].age > 70)
                 {
                     printf("Age must be 18-70.\n");
                     continue;
@@ -624,18 +623,18 @@ int editEmployee(struct Employee employees[], int count, int id)
         case 4: // Edit Position
             while (1)
             {
-                printf("\nUpdate Position (Current: %s): ", employees[index].position);
-                if (scanf("%49[^\n]", employees[index].position) != 1)
+                printf("\nUpdate Position (Current: %s): ", employees[i].position);
+                if (scanf("%49[^\n]", employees[i].position) != 1)
                 {
                     while (getchar() != '\n')
                         ;
                     continue;
                 }
-                if (strlen_custom(employees[index].position) > 0)
+                if (strlen_custom(employees[i].position) > 0)
                     break;
                 printf("Position cannot be empty.\n");
             }
-            NameFormat_custom(employees[index].position);
+            NameFormat_custom(employees[i].position);
 
             while (getchar() != '\n')
                 ;
@@ -644,15 +643,15 @@ int editEmployee(struct Employee employees[], int count, int id)
         case 5: // Edit Salary
             while (1)
             {
-                printf("\nUpdate Salary (Current: %.2f): ", employees[index].salary);
-                if (scanf("%f%c", &employees[index].salary, &term) != 2 || term != '\n')
+                printf("\nUpdate Salary (Current: %.2f): ", employees[i].salary);
+                if (scanf("%f%c", &employees[i].salary, &term) != 2 || term != '\n')
                 {
                     printf("Invalid input. Numeric value only.\n");
                     while (getchar() != '\n')
                         ;
                     continue;
                 }
-                if (employees[index].salary < 1000 || employees[index].salary > 1000000)
+                if (employees[i].salary < 1000 || employees[i].salary > 1000000)
                 {
                     printf("Range: 1000 - 1,000,000.\n");
                     continue;
@@ -664,15 +663,15 @@ int editEmployee(struct Employee employees[], int count, int id)
         case 6: // Edit Hours
             while (1)
             {
-                printf("\nUpdate Working Hours (Current: %d): ", employees[index].working_hours);
-                if (scanf("%d%c", &employees[index].working_hours, &term) != 2 || term != '\n')
+                printf("\nUpdate Working Hours (Current: %d): ", employees[i].working_hours);
+                if (scanf("%d%c", &employees[i].working_hours, &term) != 2 || term != '\n')
                 {
                     printf("Invalid input. Number only.\n");
                     while (getchar() != '\n')
                         ;
                     continue;
                 }
-                if (employees[index].working_hours < 0 || employees[index].working_hours > 40)
+                if (employees[i].working_hours < 0 || employees[i].working_hours > 40)
                 {
                     printf("Range: 0 - 40.\n");
                     continue;
@@ -684,15 +683,15 @@ int editEmployee(struct Employee employees[], int count, int id)
         case 7:
             while (1)
             {
-                printf("\nUpdate Overtime (Current: %d): ", employees[index].over_time);
-                if (scanf("%d%c", &employees[index].over_time, &term) != 2 || term != '\n')
+                printf("\nUpdate Overtime (Current: %d): ", employees[i].over_time);
+                if (scanf("%d%c", &employees[i].over_time, &term) != 2 || term != '\n')
                 {
                     printf("Invalid input. Number only.\n");
                     while (getchar() != '\n')
                         ;
                     continue;
                 }
-                if (employees[index].over_time < 0 || employees[index].over_time > 20)
+                if (employees[i].over_time < 0 || employees[i].over_time > 20)
                 {
                     printf("Range: 0 - 20.\n");
                     continue;
@@ -703,15 +702,15 @@ int editEmployee(struct Employee employees[], int count, int id)
         case 8:
             while (1)
             {
-                printf("\nUpdate Performance (Current: %.1f): ", employees[index].performance_rating);
-                if (scanf("%f%c", &employees[index].performance_rating, &term) != 2 || term != '\n')
+                printf("\nUpdate Performance (Current: %.1f): ", employees[i].performance_rating);
+                if (scanf("%f%c", &employees[i].performance_rating, &term) != 2 || term != '\n')
                 {
                     printf("Invalid input, X.X format only.\n");
                     while (getchar() != '\n')
                         ;
                     continue;
                 }
-                if (employees[index].performance_rating < 0.0f || employees[index].performance_rating > 5.0)
+                if (employees[i].performance_rating < 0.0f || employees[i].performance_rating > 5.0)
                 {
                     printf("Range: 0.0 - 5.0 \n");
                     continue;

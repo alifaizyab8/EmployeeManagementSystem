@@ -20,7 +20,7 @@
 120,Taimoor,Hassan,32,Product Owner,125000.00,40,4,4.60
 121,Farhan,Ali,29,Backend Developer,96000.00,40,9,4.50
 122,Javeria,Aslam,27,Frontend Developer,91000.00,40,7,4.40
-124,Kinza,Noor,22,Intern Developer,35000.00,30,0,3.80
+124,Kinza,Noor,22,Intern Developer,35000.00,30,12,3.80
 125,Daniyal,Bhatti,23,Intern Developer,35000.00,30,0,3.90
 126,Mahnoor,Shah,26,HR Executive,60000.00,40,2,4.30
 127,Zubair,Khan,31,Network Engineer,88000.00,40,10,4.40

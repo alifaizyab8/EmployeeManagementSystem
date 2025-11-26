@@ -114,7 +114,7 @@ void showMenu(struct Employee employees[], int *employeeCount)
             printf("\n\033[1;35mExiting program... Goodbye!\033[0m\n");
             exit(0);
         default:
-            printf("\033[1;31mInvalid choice! Please select between 1-5.\033[0m\n");
+            printf("\033[1;31mInvalid choice! Please select between 1-7.\033[0m\n");
         }
 
         // Wait for user

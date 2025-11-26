@@ -1,6 +1,8 @@
 /* This file has fucntions that are required in our Project (EMS)
    Without this file we have to include other headers to use these functions*/
 #include "../include/libraryfunc.h"
+#include <stdio.h>
+#include<stdlib.h>
 
 // like function in string.h but custom made.
 // This function returns length of string
@@ -134,3 +136,21 @@ int atoi_custom(const char *str)
     }
     return result;
 }
+
+// screen clearing using ANSI for OS Support
+
+void clearScreen()
+{
+#ifdef _WIN32
+    system("cls");
+#else
+    system("clear");
+#endif
+}
+
+/*
+    \033 is ESC key
+    [2J is screen clear command
+    [H is cursor shift command
+
+*/

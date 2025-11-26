@@ -17,7 +17,7 @@
 
 void searchbyID(struct Employee employees[], int size)
 {
-    system("cls");
+    clearScreen();
     int id;
     printf("Enter Employee ID to search: ");
     char term;
@@ -80,7 +80,7 @@ void searchbyID(struct Employee employees[], int size)
 
 void searchbyName(struct Employee employees[], int size)
 {
-    system("cls");
+    clearScreen();
     char fName[50];
     char secName[50];
     int found = 0;
@@ -180,7 +180,7 @@ void searchbyName(struct Employee employees[], int size)
 void searchbyAge(struct Employee employees[], int size)
 {
 
-    system("cls");
+    clearScreen();
     printf("1. Search by Exact Age\n");
     printf("2. Search by Age Range\n");
     printf("Enter your choice: ");
@@ -282,7 +282,7 @@ void searchbyAge(struct Employee employees[], int size)
 void searchbyposition(struct Employee employees[], int size)
 {
 
-    system("cls");
+    clearScreen();
     char pos[50];
 
     printf("Enter Employee Position: ");

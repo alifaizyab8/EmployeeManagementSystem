@@ -2,6 +2,7 @@
 #include "../include/login.h"
 #include "../include/menuHandler.h"
 #include "../include/search.h"
+#include "../include/libraryfunc.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -13,7 +14,7 @@ void showMenu(struct Employee employees[], int *employeeCount)
 
     while (1)
     {
-        system("cls");
+        clearScreen();
 
         printf("\n\033[1;36m=====================================\033[0m\n");
         printf("\033[1;33m        EMPLOYEE MANAGEMENT MENU      \033[0m\n");
@@ -129,7 +130,7 @@ void searchMenu(struct Employee employees[], int *employeeCount)
 
     while (1)
     {
-        system("cls");
+        clearScreen();
         printf("\n\033[1;36m=== Search Employee Menu ===\033[0m\n");
         printf("1. Search by ID\n");
         printf("2. Search by Name\n");

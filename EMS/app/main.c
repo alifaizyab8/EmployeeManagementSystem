@@ -4,6 +4,7 @@
 #include "../include/login.h"
 #include "../include/menuHandler.h"
 #include "../include/search.h"
+#include "../include/libraryfunc.h"
 
 int main()
 {

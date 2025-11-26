@@ -500,7 +500,7 @@ int editEmployee(struct Employee employees[], int count, int id)
 
     while (1)
     {
-        system("cls");
+        clearScreen();
         line();
         printf("\033[1;34m        EDITING EMPLOYEE--ID:  %d        \033[0m\n", id);
         line();
@@ -746,7 +746,7 @@ void highlyPaidEmployee(const struct Employee employees[], int size)
     {
         if (employees[i].salary >= 100000)
         {
-            printf("\033[1;35m%-5d %-15s %-15s %-5d %-22s %-20f %-12d %-10d %-10.2f\033[0m\n",
+            printf("\033[1;35m%-5d %-15s %-15s %-5d %-22s %-20.2f %-12d %-10d %-10.2f\033[0m\n",
                    employees[i].id,
                    employees[i].emp.firstname,
                    employees[i].emp.lastname,

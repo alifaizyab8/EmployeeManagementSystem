@@ -31,7 +31,7 @@ void showMenu(struct Employee employees[], int *employeeCount)
         printf("\033[1;36m-------------------------------------\033[0m\n");
         printf("Enter your choice (1-7): ");
 
-        // If scanf fails or if the char after the number isn't a
+        // If scanf fails or if the char after the number isn't the enter key
         if (scanf("%d%c", &choice, &term) != 2 || term != '\n')
         {
             printf("\033[1;31mInvalid input! Please enter a number.\033[0m\n");

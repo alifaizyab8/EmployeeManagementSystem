@@ -44,7 +44,7 @@ int isalpha_custom(char c)
 
 // like function in ctype.h but custom made.
 // This function converts a string to lowercase
-// e.g "John DOE" becomes "john doe"
+// e.g "ALI FAIZYAB" becomes "ali faizyab"
 void toLowercase_custom(char *str)
 {
     for (int i = 0; str[i] != '\0'; i++)
@@ -58,7 +58,7 @@ void toLowercase_custom(char *str)
 
 // This function formats the name string to have the first letter of each word capitalized
 //  and the rest in lowercase, also removes leading spaces
-//  e.g "  john DOE" becomes "John Doe"
+//  e.g "aLi faIzyab kHAN" becomes "Ali Faizyab Khan"
 void NameFormat_custom(char *str)
 {
     toLowercase_custom(str);

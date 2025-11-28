@@ -373,7 +373,7 @@ int loadEmployee(struct Employee employees[], int size)
     }
 
     int employeeCount = 0;
-    // reading CSV format
+    // reading CSV format (Comma Separated Value)
     while (fscanf(fptr, "%d,%49[^,],%49[^,],%d,%49[^,],%f,%d,%d,%f\n",
                   &employees[employeeCount].id,
                   employees[employeeCount].emp.firstname,

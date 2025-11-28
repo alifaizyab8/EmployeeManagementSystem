@@ -36,3 +36,4 @@
 137,Anum,Fayyuaz,27,Business Analyst,82000.00,40,3,4.40
 138,Fawad,Khan,25,Junior Backend Dev,66000.00,40,6,4.20
 187,Umer,Tariq,34,Devops Engineer,450000.00,8,0,0.00
+123,Waqar,Wasif,55,Manager,400000.00,40,0,0.00
